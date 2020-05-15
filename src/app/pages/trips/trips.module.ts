@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { TripsPageRoutingModule } from './trips-routing.module';
 
 import { TripsPage } from './trips.page';
+import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TripsPageRoutingModule
+    TripsPageRoutingModule,
   ],
-  declarations: [TripsPage]
+  entryComponents: [SearchBarComponent],
+  declarations: [TripsPage, SearchBarComponent]
 })
 export class TripsPageModule {}

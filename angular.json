@@ -40,6 +40,9 @@
               },
               {
                 "input": "src/theme/tailwind.min.css"
+              },
+              {
+                "input": "src/theme/custom.scss"
               }
             ],
             "scripts": []

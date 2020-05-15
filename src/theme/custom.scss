@@ -1,0 +1,38 @@
+$candypop: #FD7F8E;
+$sandy: #FFA882;
+$textoNegro: #696969;
+
+.bg-candypop {
+    background-color: $candypop;
+}
+
+.bg-sandy {
+    background-color: $sandy;
+}
+
+.bg-twicetagram {
+    background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+}
+
+.shadow-twicetagram {
+    box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    padding: 2.5rem;
+}
+
+.text-dark {
+    color: $textoNegro;
+}
+
+.text-twicetagram {
+    color: linear-gradient($sandy 0%, $candypop 100%);
+}
+
+.text-candypop {
+    color: $candypop;
+}

@@ -8,6 +8,8 @@ import { TripsPageRoutingModule } from './trips-routing.module';
 
 import { TripsPage } from './trips.page';
 import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.component';
+import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
+import { CreateButtonComponent } from 'src/app/components/create-button/create-button.component';
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.com
     IonicModule,
     TripsPageRoutingModule,
   ],
-  entryComponents: [SearchBarComponent],
-  declarations: [TripsPage, SearchBarComponent]
+  entryComponents: [SearchBarComponent, PageTitleComponent],
+  declarations: [TripsPage, SearchBarComponent, PageTitleComponent,CreateButtonComponent]
 })
 export class TripsPageModule {}

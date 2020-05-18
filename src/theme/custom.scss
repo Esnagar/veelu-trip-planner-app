@@ -1,6 +1,8 @@
 $candypop: #FD7F8E;
 $sandy: #FFA882;
 $textoNegro: #696969;
+$grisFormulario: #F2F2F2;
+$textoFormulario: #ACACAC;
 
 .bg-candypop {
     background-color: $candypop;
@@ -10,7 +12,11 @@ $textoNegro: #696969;
     background-color: $sandy;
 }
 
-.bg-twicetagram {
+.bg-form {
+    background-color: $grisFormulario;
+}
+
+.bg-twice {
     background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
 }
 
@@ -29,10 +35,55 @@ $textoNegro: #696969;
     color: $textoNegro;
 }
 
+.text-form {
+    color: $textoFormulario;
+}
+
 .text-twicetagram {
     color: linear-gradient($sandy 0%, $candypop 100%);
 }
 
 .text-candypop {
     color: $candypop;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.shadow-pink {
+    box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+/********************** FUENTES **********************/
+
+@font-face {
+    font-family: 'Regular';
+    src: url('../assets/fonts/Circe/Circe-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('../assets/fonts/Circe/Circe-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'ExtraBold';
+    src: url('../assets/fonts/Circe/Circe-ExtraBold.ttf');
+}
+
+* {
+    font-family: 'Regular';
+}
+
+.regular {
+    font-family: 'Regular';
+}
+
+.bold {
+    font-family: 'Bold';
+}
+
+.extrabold {
+    font-family: 'ExtraBold';
 }

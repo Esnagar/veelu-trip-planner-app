@@ -1,5 +1,7 @@
 {
   "name": "Veelu",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

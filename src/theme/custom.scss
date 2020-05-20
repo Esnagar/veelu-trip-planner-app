@@ -1,8 +1,4 @@
-$candypop: #FD7F8E;
-$sandy: #FFA882;
-$textoNegro: #696969;
-$grisFormulario: #F2F2F2;
-$textoFormulario: #ACACAC;
+@import "./colors.scss";
 
 .bg-candypop {
     background-color: $candypop;
@@ -27,7 +23,6 @@ $textoFormulario: #ACACAC;
 .container {
     height: 100vh;
     width: 100vw;
-    background-color: white;
     padding: 2.5rem;
 }
 

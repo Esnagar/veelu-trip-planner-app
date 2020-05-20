@@ -1,0 +1,7 @@
+<div class="flex my-6">
+  <div *ngFor="let filtro of filtros">
+    <button [className]="active == filtro.nombre ? 'activeFilter' : 'inactiveFilter'" (click)="changeActive(filtro.nombre)">
+      {{ filtro.nombre }}
+    </button>
+  </div>
+</div>

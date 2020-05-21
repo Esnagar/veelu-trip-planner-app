@@ -4,6 +4,10 @@
   <filters></filters>
   <create-button></create-button>
 
+  <div *ngFor="let trip of (trips | async)">
+    <trip-thumbnail [info]="trip"></trip-thumbnail>
+  </div>
+
 </div>
 
 <ion-content>

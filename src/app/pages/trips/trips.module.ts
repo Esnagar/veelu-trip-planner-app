@@ -11,6 +11,7 @@ import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.com
 import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
 import { CreateButtonComponent } from 'src/app/components/create-button/create-button.component';
 import { FiltersComponent } from 'src/app/components/filters/filters.component';
+import { TripThumbnailComponent } from 'src/app/components/trip-thumbnail/trip-thumbnail.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { FiltersComponent } from 'src/app/components/filters/filters.component';
     TripsPageRoutingModule,
   ],
   entryComponents: [SearchBarComponent, PageTitleComponent, FiltersComponent],
-  declarations: [TripsPage, SearchBarComponent, PageTitleComponent, CreateButtonComponent, FiltersComponent]
+  declarations: [TripsPage, SearchBarComponent, PageTitleComponent, 
+                CreateButtonComponent, FiltersComponent, TripThumbnailComponent]
 })
 export class TripsPageModule {}

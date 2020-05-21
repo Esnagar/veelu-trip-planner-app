@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { TabsPage } from './tabs.page';
 import { Routes, RouterModule } from '@angular/router';
-import { IconsModule } from 'src/app/icons/icons.module';
 
 const routes: Routes = [
   {
@@ -39,7 +38,6 @@ const routes: Routes = [
     IonicModule,
     CommonModule,
     FormsModule,
-    IconsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [TabsPage]

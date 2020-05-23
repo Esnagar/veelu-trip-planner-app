@@ -32,11 +32,11 @@ export class TripsService {
     );
   }
  
-  getIdeas(): Observable<Trip[]> {
+  getTrips(): Observable<Trip[]> {
     return this.trips;
   }
  
-  getIdea(id: string): Observable<Trip> {
+  getTrip(id: string): Observable<Trip> {
     return this.tripCollection.doc<Trip>(id).valueChanges().pipe(
       take(1),
       map(trip => {
@@ -45,16 +45,20 @@ export class TripsService {
       })
     );
   }
+/*
+  searchTrips(titulo: string): Observable<Trip> {
+    return this.tripCollection.doc
+  }*/
  
-  addIdea(trip: Trip): Promise<DocumentReference> {
+  addTrip(trip: Trip): Promise<DocumentReference> {
     return this.tripCollection.add(trip);
   }
  
-  updateIdea(trip: Trip): Promise<void> {
+  updateTrip(trip: Trip): Promise<void> {
     return this.tripCollection.doc(trip.id).update({ titulo: trip.titulo, foto: trip.foto });
   }
  
-  deleteIdea(id: string): Promise<void> {
+  deleteTrip(id: string): Promise<void> {
     return this.tripCollection.doc(id).delete();
   }
 }

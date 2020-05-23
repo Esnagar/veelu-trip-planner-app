@@ -1,0 +1,26 @@
+<div class="container">
+  <arrow-back [routerLink]="['/tabs/trips']"></arrow-back>
+  <page-title title='Create a trip'></page-title>
+
+  <label label='Title'></label>
+  <input-form type='text'></input-form>
+
+  <label label='Description' optional=true></label>
+  <input-form type='text' size="large"></input-form>
+
+  <div class="flex">
+    <div class="mr-3">
+      <label label='Starts'></label>
+      <input-form type='text'></input-form>
+    </div>
+    <div class="ml-3">
+      <label label='Ends'></label>
+      <input-form type='text'></input-form>
+    </div>
+  </div>
+
+  <label label='Trip cover' optional=true></label>
+  <upload-cover></upload-cover>
+  <main-button text='Create trip'></main-button>
+
+</div>

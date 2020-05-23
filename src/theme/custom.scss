@@ -34,7 +34,7 @@
     color: $textoFormulario;
 }
 
-.text-twicetagram {
+.text-twice {
     color: linear-gradient($sandy 0%, $candypop 100%);
 }
 
@@ -58,6 +58,11 @@
 }
 
 @font-face {
+    font-family: 'SemiBold';
+    src: url('../assets/fonts/Nunito/Nunito-SemiBold.ttf');
+}
+
+@font-face {
     font-family: 'Bold';
     src: url('../assets/fonts/Nunito/Nunito-Bold.ttf');
 }
@@ -73,6 +78,10 @@
 
 .regular {
     font-family: 'Regular';
+}
+
+.semibold {
+    font-family: 'SemiBold';
 }
 
 .bold {

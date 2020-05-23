@@ -2,14 +2,10 @@
   <page-title title="Your trips"></page-title>
   <search-bar></search-bar>
   <filters></filters>
-  <create-button></create-button>
+  <create-button [routerLink]="['/create-trip']"></create-button>
 
   <div *ngFor="let trip of (trips | async)">
     <trip-thumbnail [info]="trip"></trip-thumbnail>
   </div>
 
 </div>
-
-<ion-content>
-
-</ion-content>

@@ -1,6 +1,6 @@
 <div id="{{ info.id }}" 
     [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"
     class="thumbnailViaje flex flex-col justify-end p-8">
-  <div class="text-white">{{ info.fecha_ini }} - {{ info.fecha_fin}}</div>
+  <div class="text-white">{{ info.fecha_ini | date:'MMM d' }} - {{ info.fecha_fin | date:'MMM d' }}</div>
   <div class="text-white bold text-3xl tracking-wide">{{ info.titulo }}</div>
 </div>

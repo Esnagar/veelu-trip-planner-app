@@ -12,12 +12,15 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { enterAnimation } from './animations/page-transition';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
+  imports: [BrowserModule, IonicModule.forRoot({
+    navAnimation: enterAnimation
+  }), AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule],
   providers: [

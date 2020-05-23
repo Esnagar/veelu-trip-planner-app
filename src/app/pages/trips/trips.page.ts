@@ -13,6 +13,6 @@ export class TripsPage implements OnInit {
   constructor(private tripsService: TripsService) { }
  
   ngOnInit() {
-    this.trips = this.tripsService.getIdeas();
+    this.trips = this.tripsService.getTrips();
   }
 }

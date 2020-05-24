@@ -4,8 +4,10 @@
   <filters></filters>
   <create-button [routerLink]="['/create-trip']"></create-button>
 
-  <div *ngFor="let trip of (trips | async)">
-    <trip-thumbnail [info]="trip"></trip-thumbnail>
-  </div>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let trip of (trips | async)" class="px-2 text-left">
+      <trip-thumbnail class="w-full" [info]="trip"></trip-thumbnail>
+    </ion-slide>
+  </ion-slides>
 
 </div>

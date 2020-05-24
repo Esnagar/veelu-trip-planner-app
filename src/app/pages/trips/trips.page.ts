@@ -9,9 +9,13 @@ import { Observable } from 'rxjs';
 export class TripsPage implements OnInit {
 
   private trips: Observable<Trip[]>;
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
  
   constructor(private tripsService: TripsService) { }
- 
+
   ngOnInit() {
     this.trips = this.tripsService.getTrips();
   }

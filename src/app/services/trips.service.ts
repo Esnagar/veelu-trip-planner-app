@@ -50,7 +50,7 @@ export class TripsService {
     return this.tripCollection.doc
   }*/
  
-  addTrip(trip: Trip): Promise<DocumentReference> {
+  createTrip(trip: Trip): Promise<DocumentReference> {
     return this.tripCollection.add(trip);
   }
  

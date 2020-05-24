@@ -14,7 +14,7 @@ export class UploadCoverComponent implements OnInit {
   }
 
   getImage () {
-    var file = document.getElementById('uploader').files[0];
+    var file = document.getElementById('uploader');//.files[0];
     var reader = new FileReader();
     var background = document.getElementById('background');
     reader.onloadend = function () {
@@ -26,7 +26,7 @@ export class UploadCoverComponent implements OnInit {
     }
   
     if (file) {
-      reader.readAsDataURL(file);
+      //reader.readAsDataURL(file);
     } else {
     }
   }

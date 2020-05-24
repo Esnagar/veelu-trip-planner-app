@@ -24,3 +24,27 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import "./theme/colors.scss";
+
+.swiper-pagination {
+    position: fixed !important;
+}
+
+.swiper-pagination-bullets {
+    bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+    background: $rosaClarito;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background: $candypop;
+    width: 20px;
+    height: 10px;
+    border-radius: 10px;
+}

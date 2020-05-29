@@ -6,7 +6,7 @@
 
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let trip of (trips | async)" class="px-2 text-left">
-      <trip-thumbnail class="w-full" [info]="trip"></trip-thumbnail>
+      <trip-thumbnail class="w-full" [info]="trip" [routerLink]="'/trip/' + trip.id" [state]="trip"></trip-thumbnail>
     </ion-slide>
   </ion-slides>
 

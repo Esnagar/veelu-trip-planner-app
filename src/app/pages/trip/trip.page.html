@@ -1,0 +1,49 @@
+<div *ngIf="loaded" class="relative">
+  <div [ngStyle]="{'background-image': 'url(' + trip.foto + ')'}"
+    class="fotoViaje flex flex-col justify-between p-8 pb-16 w-full">
+    <arrow-back [routerLink]="['/tabs/trips']"></arrow-back>
+
+    <div>
+      <div class="text-white">{{ trip.fecha_ini | date:'MMM d' }} - {{ trip.fecha_fin | date:'MMM d' }}</div>
+      <div class="text-white bold text-2xl tracking-wide">{{ trip.titulo }}</div>
+    </div>
+  </div>
+
+  <div class="contenedorViaje container -mt-10 z-10">
+    <label label='Description'></label>
+    <div class="text-dark">{{ trip.descripcion }}</div>
+
+    <label label='Participants'></label>
+
+    <label label='Features'></label>
+    <div class="flex justify-between">
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-2 rounded-xl shadow-button">
+          <img src="../../../assets/icon/image-pink.svg" />
+        </div>
+        <div class="text-candypop semibold">Files</div>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-2 rounded-xl shadow-button">
+          <img src="../../../assets/icon/check-square-sandy.svg" />
+        </div>
+        <div class="text-sandy semibold">Checklist</div>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-2 rounded-xl shadow-button">
+          <img src="../../../assets/icon/dollar-sign-green.svg" />
+        </div>
+        <div class="text-lime semibold">Expenses</div>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-2 rounded-xl shadow-button">
+          <img src="../../../assets/icon/book-open-blue.svg" />
+        </div>
+        <div class="text-aqua semibold">Diary</div>
+      </div>
+    </div>
+
+    <main-button text='View trip activities'></main-button>
+
+  </div>
+</div>

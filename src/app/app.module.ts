@@ -18,9 +18,7 @@ import { enterAnimation } from './animations/page-transition';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot({
-    navAnimation: enterAnimation
-  }), AppRoutingModule, 
+  imports: [BrowserModule, IonicModule.forRoot({}), AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule],
   providers: [

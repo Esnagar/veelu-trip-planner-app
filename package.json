@@ -1,8 +1,8 @@
 {
   "name": "veelu",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Esther Navarro García",
+  "homepage": "https://www.linkedin.com/in/esnagar/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -55,5 +55,5 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "description": "An Ionic project"
+  "description": "Aplicación móvil desarrollada para el TFG con Ionic 5 (con Angular), que tiene el propósito de facilitar la organización y el desarrollo de viajes, tanto individuales como en grupo."
 }

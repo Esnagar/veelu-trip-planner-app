@@ -1,1 +1,2 @@
-<img src="../../../assets/icon/arrow-left.svg" class="mb-4">
+<img *ngIf="type != undefined && type != null && type == 'white'; else other" src="../../../assets/icon/arrow-left-white.svg" class="mb-4">
+<ng-template #other><img src="../../../assets/icon/arrow-left.svg" class="mb-4"></ng-template>

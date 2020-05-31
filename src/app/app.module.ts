@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { enterAnimation } from './animations/page-transition';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { enterAnimation } from './animations/page-transition';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot({}), AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule],
+    AngularFirestoreModule, ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,

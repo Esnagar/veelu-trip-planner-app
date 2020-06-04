@@ -1,31 +1,36 @@
-<div class="container flex flex-col justify-between">
-  <div>
-    <arrow-back [routerLink]="['/tabs/trips']"></arrow-back>
+<div class="container">
+    <arrow-back [routerLink]="['/tabs/trips']" (click)="form.reset()"></arrow-back>
     <page-title title='Create a trip'></page-title>
 
-    <form>
-      <label label='Title'></label>
-      <input-form type='text'></input-form>
+    <form [formGroup]="form" (ngSubmit)="checkForm(form.value)" class="flex flex-col justify-between" style="height: 75vh;">
+      <div>
+        <label label='Title'></label>
+        <input type="text" formControlName="titulo" class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
 
-      <label label='Description' optional=true></label>
-      <input-form type='text' size="large"></input-form>
+        <label label='Description' optional=true></label>
+        <textarea type="text" formControlName="descripcion" class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-3" rows="2"></textarea>
 
-      <div class="flex">
-        <div class="mr-3">
-          <label label='Starts'></label>
-          <input-form type='text'></input-form>
+        <div class="flex w-full">
+          <div class="mr-3 w-full">
+            <label label='Starts'></label>
+            <ion-datetime displayFormat="DD MMM YY" monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+                          min="1995-01-01" max="2050-12-31"
+                          formControlName="fecha_ini" 
+                          class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
+
+          </div>
+          <div class="ml-3 w-full">
+            <label label='Ends'></label>
+            <ion-datetime displayFormat="DD MMM YY" monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+                          min="1995-01-01" max="2050-12-31"
+                          formControlName="fecha_fin" 
+                          class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
+          </div>
         </div>
-        <div class="ml-3">
-          <label label='Ends'></label>
-          <input-form type='text'></input-form>
-        </div>
+
+        <label label='Trip cover' optional=true></label>
+        <upload-cover></upload-cover>
       </div>
-
-      <label label='Trip cover' optional=true></label>
-      <upload-cover></upload-cover>
-    </form>
-  </div>
-
-  <main-button text='Create trip'></main-button>
-
+    <main-button class="w-full" text="Create trip" type="submit"></main-button>
+  </form>
 </div>

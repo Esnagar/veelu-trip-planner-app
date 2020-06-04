@@ -48,3 +48,16 @@
     height: 10px;
     border-radius: 10px;
 }
+
+ion-toast.toast-warning {
+    color: white;
+    --background: #ffae00;
+    --border-color: #ffa600;
+    --border-width: 3px;
+    --border-style: solid;
+    --box-shadow: none;
+    --height: 4rem;
+    bottom: 500px;
+    position: fixed;
+}
+  

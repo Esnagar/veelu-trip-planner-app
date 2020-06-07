@@ -20,13 +20,23 @@
   >
     <div>
       <label label="Description"></label>
-      <div class="text-dark">{{ trip.descripcion }}</div>
+      <div *ngIf="trip.descripcion != ''; else elseBlock">
+        <div class="text-dark">{{ trip.descripcion }}</div>
+      </div>
+      <ng-template #elseBlock>
+        <div class="text-dark italic">Write something about your trip...</div>
+      </ng-template>
     </div>
 
     <div>
       <label label="Participants"></label>
+      <div class="flex justify-between items-center">
+        <div class="text-dark italic">No one joined this trip yet.</div>
+        <button type="button" class="outline-none rounded-full w-14 h-14 bg-candypop text-white shadow-pink flex items-center justify-center">
+          <img src="../../../assets/icon/user-plus.svg" />
+        </button>
+      </div>
     </div>
-
     <div>
       <label label="Features"></label>
       <div class="flex justify-between">

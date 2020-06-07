@@ -5,10 +5,10 @@
     <form [formGroup]="form" (ngSubmit)="checkForm(form.value)" class="flex flex-col justify-between" style="height: 75vh;">
       <div>
         <label label='Title'></label>
-        <input type="text" formControlName="titulo" class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+        <input type="text" formControlName="titulo" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
 
         <label label='Description' optional=true></label>
-        <textarea type="text" formControlName="descripcion" class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-3" rows="2"></textarea>
+        <textarea type="text" formControlName="descripcion" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-3" rows="2"></textarea>
 
         <div class="flex w-full">
           <div class="mr-3 w-full">
@@ -16,7 +16,7 @@
             <ion-datetime displayFormat="DD MMM YY" monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
                           min="1995-01-01" max="2050-12-31"
                           formControlName="fecha_ini" 
-                          class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
+                          class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
 
           </div>
           <div class="ml-3 w-full">
@@ -24,12 +24,12 @@
             <ion-datetime displayFormat="DD MMM YY" monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
                           min="1995-01-01" max="2050-12-31"
                           formControlName="fecha_fin" 
-                          class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
+                          class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
           </div>
         </div>
 
         <label label='Trip cover' optional=true></label>
-        <upload-cover></upload-cover>
+        <upload-cover id="cover" (click)="selectPicture()"></upload-cover>
       </div>
     <main-button class="w-full" text="Create trip" type="submit"></main-button>
   </form>

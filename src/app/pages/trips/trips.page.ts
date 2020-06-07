@@ -14,9 +14,9 @@ export class TripsPage implements OnInit {
     speed: 400
   };
  
-  constructor(private tripsService: TripsService) { }
-
-  ngOnInit() {
+  constructor(private tripsService: TripsService) { 
     this.trips = this.tripsService.getTrips();
   }
+
+  ngOnInit() { }
 }

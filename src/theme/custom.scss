@@ -40,7 +40,9 @@
 }
 
 .text-twice {
-    color: linear-gradient($sandy 0%, $candypop 100%);
+    background: -webkit-linear-gradient(#FFA882 0%, #FD7F8E 100%);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .text-candypop {
@@ -63,6 +65,12 @@
     color: #fff;
 }
 
+.border-pink {
+    -webkit-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    -moz-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    box-shadow:inset 0px 0px 0px 1.2px $candypop;
+}
+
 .border-candy:focus {
     -webkit-box-shadow:inset 0px 0px 0px 1.2px $rosaClarito;
     -moz-box-shadow:inset 0px 0px 0px 1.2px $rosaClarito;
@@ -71,6 +79,10 @@
 
 .shadow-pink {
     box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+.shadow-logo {
+    box-shadow: 0px 10px 250px rgba(253, 127, 142, 0.25), 0px 4px 10px rgba(253, 127, 142, 0.25);
 }
 
 .shadow-button {

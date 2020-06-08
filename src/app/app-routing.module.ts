@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
   },
   {
+    path: 'intro',
+    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+  },
+  {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
@@ -21,7 +25,16 @@ const routes: Routes = [
   {
     path: 'trip/:id',
     loadChildren: () => import('./pages/trip/trip.module').then( m => m.TripPageModule)
+  },
+  {
+    path: 'intro/sign-up',
+    loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'intro/log-in',
+    loadChildren: () => import('./pages/log-in/log-in.module').then( m => m.LogInPageModule)
   }
+
 
 
 

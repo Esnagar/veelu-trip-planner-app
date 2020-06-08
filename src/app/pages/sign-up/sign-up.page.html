@@ -1,0 +1,18 @@
+<div class="container estampado">
+  <arrow-back [routerLink]="['/intro']" (click)="form.reset()"></arrow-back>
+  <page-title title='Sign up'></page-title>
+
+  <form [formGroup]="form" (ngSubmit)="checkForm(form.value)" class="flex flex-col justify-between" style="height: 75vh;">
+    <div>
+      <label label='Nickname'></label>
+      <input type="text" formControlName="nickname" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+
+      <label label='Email'></label>
+      <input type="email" formControlName="email" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+      
+      <label label='Password'></label>
+      <input type="text" formControlName="password" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+    </div>
+    <main-button class="w-full" text="Sign up" type="submit"></main-button>
+</form>
+</div>

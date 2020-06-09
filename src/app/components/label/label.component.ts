@@ -9,5 +9,5 @@ export class LabelComponent {
 
   @Input() label: string;
   @Input() optional: boolean;
-
+  @Input() password: boolean;
 }

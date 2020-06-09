@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
@@ -25,7 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot({}), AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule, AngularFireStorageModule, ReactiveFormsModule],
+    AngularFirestoreModule, AngularFireAuthModule, AngularFireStorageModule, ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,

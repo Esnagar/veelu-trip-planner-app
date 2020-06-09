@@ -1,27 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app'; 
+import 'firebase/auth';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
 })
-export class SignUpPage implements OnInit {
+export class SignUpPage {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({ nickname: ['', Validators.required],
-                                email: ['', [Validators.required, Validators.email]],
-                                password: ['', Validators.required]
-                              });
+  constructor(private fb: FormBuilder, public afAuth: AngularFireAuth, public toastController: ToastController) {
+    this.form = this.fb.group({ email: ['', [Validators.required, Validators.email]],
+                                password: ['', Validators.required]});
   }
 
-  ngOnInit() {
+  googleSingUp () {
+    this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
-  checkForm(data) {
-    
+  async signUp(data) {
+    await this.afAuth.createUserWithEmailAndPassword(data.email, data.password)
+        .then(result => {
+          console.log(result);
+        }).catch(error => {
+          console.log(error);
+          this.showToast(error.message);
+        });
   }
 
+  async showToast (message) {
+    const toast = await this.toastController.create({
+      message: message,
+      cssClass: "toast-warning",
+      duration: 1000
+    });
+    toast.present();
+  }
 }

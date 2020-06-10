@@ -2,7 +2,7 @@
   <arrow-back [routerLink]="['/intro']" (click)="form.reset()"></arrow-back>
   <page-title title='Sign up'></page-title>
 
-  <form [formGroup]="form" (ngSubmit)="checkForm(form.value)" class="flex flex-col justify-between" style="height: 75vh;">
+  <form [formGroup]="form" class="flex flex-col justify-between" style="height: 75vh;">
     <div>
       <label label='Email'></label>
       <input type="email" formControlName="email" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />

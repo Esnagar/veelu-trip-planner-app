@@ -26,7 +26,9 @@ export class SignUpPage {
   async signUp(data) {
     await this.afAuth.createUserWithEmailAndPassword(data.email, data.password)
         .then(result => {
-          console.log(result);
+            return result.user.updateProfile({
+              displayName: data.email.split('@')[0]
+            })
         }).catch(error => {
           console.log(error);
           this.showToast(error.message);

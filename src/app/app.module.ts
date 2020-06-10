@@ -21,12 +21,21 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { enterAnimation } from './animations/page-transition';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot({}), AppRoutingModule, 
+  imports: [
+    BrowserModule, IonicModule.forRoot({}), 
+    AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule, AngularFireAuthModule, AngularFireStorageModule, ReactiveFormsModule],
+    AngularFirestoreModule, 
+    AngularFireAuthModule, 
+    AngularFireStorageModule, 
+    ReactiveFormsModule,
+    IonicStorageModule.forRoot()
+  ],
   providers: [
     StatusBar,
     SplashScreen,

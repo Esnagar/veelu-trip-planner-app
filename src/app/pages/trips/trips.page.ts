@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TripsService, Trip } from 'src/app/services/trips.service';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-trips',
   templateUrl: './trips.page.html',
@@ -14,9 +17,14 @@ export class TripsPage implements OnInit {
     speed: 400
   };
  
-  constructor(private tripsService: TripsService) { 
+  constructor(private tripsService: TripsService, public afAuth: AngularFireAuth, private storage: Storage) { 
     this.trips = this.tripsService.getTrips();
+
   }
 
-  ngOnInit() { }
+  async ngOnInit() { 
+    this.storage.get('userNickname').then(nickname => {
+      console.log(nickname);
+    });
+  }
 }

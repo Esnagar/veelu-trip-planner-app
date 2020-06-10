@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -24,11 +24,6 @@ const routes: Routes = [
         loadChildren: () => import('../user/user.module').then( m => m.UserPageModule)
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/trips',
-    pathMatch: 'full'
   }
 ];
 

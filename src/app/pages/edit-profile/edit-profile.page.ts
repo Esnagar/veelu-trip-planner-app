@@ -2,21 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.page.html',
-  styleUrls: ['./user.page.scss'],
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.page.html',
+  styleUrls: ['./edit-profile.page.scss'],
 })
-export class UserPage implements OnInit {
+export class EditProfilePage implements OnInit {
 
   loaded: boolean;
   profilePic: any;
   nickname: any;
+  email: any;
 
   constructor(public storage: Storage) { }
 
   async ngOnInit() {
     this.loaded = true;
-    var photoAux, nicknameAux, idAux;
+    var photoAux, nicknameAux, idAux, emailAux;
 
     await this.storage.get('userPhoto').then(photo => {
       photoAux = photo;
@@ -26,8 +27,12 @@ export class UserPage implements OnInit {
       nicknameAux = nick;
     })
 
+    await this.storage.get('userEmail').then(email => {
+      emailAux = email;
+    })
+
     this.profilePic = photoAux;
     this.nickname = nicknameAux;
+    this.email = emailAux;
   }
-
 }

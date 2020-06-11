@@ -1,1 +1,5 @@
-<div class="text-candypop extrabold text-2xl mb-5 tracking-wide">{{ title }}</div>
+<div *ngIf="type != undefined && type != null && type == 'white'; else other" 
+    class="text-white extrabold text-2xl mb-5 tracking-wide">{{ title }}</div>
+<ng-template #other>
+    <div class="text-candypop extrabold text-2xl mb-5 tracking-wide">{{ title }}</div>
+</ng-template>

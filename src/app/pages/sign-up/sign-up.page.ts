@@ -27,7 +27,8 @@ export class SignUpPage {
     await this.afAuth.createUserWithEmailAndPassword(data.email, data.password)
         .then(result => {
             return result.user.updateProfile({
-              displayName: data.email.split('@')[0]
+              displayName: data.email.split('@')[0],
+              photoURL: 'https://vignette.wikia.nocookie.net/shinchan/images/7/70/Misae_Nohara.jpg/revision/latest/scale-to-width-down/340?cb=20161201162356&path-prefix=es'
             })
         }).catch(error => {
           console.log(error);

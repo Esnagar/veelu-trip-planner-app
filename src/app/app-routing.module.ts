@@ -33,7 +33,11 @@ const routes: Routes = [
   {
     path: 'trip/:id',
     loadChildren: () => import('./pages/trip/trip.module').then( m => m.TripPageModule)
+  },  {
+    path: 'edit-profile',
+    loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   }
+
 
 ];
 @NgModule({

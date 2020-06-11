@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -9,7 +10,7 @@ export class TabsPage implements OnInit{
 
   active: string;
 
-  constructor() {
+  constructor(private router: Router) {
     this.active = "home";
   }
 

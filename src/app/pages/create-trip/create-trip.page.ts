@@ -5,11 +5,10 @@ import { Trip, TripsService } from 'src/app/services/trips.service';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-
 import { AngularFireStorage } from '@angular/fire/storage/';
+import { Storage } from '@ionic/storage';
 
 const { Camera } = Plugins;
-
 
 const MEDIA_FOLDER_NAME = 'my_media';
 
@@ -33,7 +32,8 @@ export class CreateTripPage implements OnInit {
   constructor(private fb: FormBuilder, 
               public toastController: ToastController, 
               private tripsService: TripsService,
-              private storage: AngularFireStorage,
+              private afStorage: AngularFireStorage,
+              private storage: Storage,
               private router: Router) {
     
     this.someError = false;  
@@ -134,10 +134,33 @@ export class CreateTripPage implements OnInit {
 
   async createTrip(data) {
     this.trip = data;
-    var urlPhoto;
+    var urlPhoto, idAux, photoAux, nicknameAux;
+
+    // Este es el storage local
+    await this.storage.get('userId').then(id => {
+      idAux = id;
+    })
+
+    await this.storage.get('userPhoto').then(photo => {
+      photoAux = photo;
+    })
+
+    await this.storage.get('userNickname').then(nick => {
+      nicknameAux = nick;
+    })
+
+    this.trip.participantes = {
+      'user': {
+        'id': idAux,
+        'aceptado': true,
+        'rol': 'owner',
+        'icono': photoAux,
+        'nick': nicknameAux
+      }
+    }
 
     if (this.trip.foto != '') {
-      await this.storage.upload(this.picToStorage, this.blobData).then(async res => {
+      await this.afStorage.upload(this.picToStorage, this.blobData).then(async res => {
         
         const storageRef = firebase.storage().ref();
     

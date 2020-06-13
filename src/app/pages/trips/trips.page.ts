@@ -11,6 +11,8 @@ import { Storage } from '@ionic/storage';
 })
 export class TripsPage implements OnInit {
 
+  idUser: any;
+
   private trips: Observable<Trip[]>;
   slideOpts = {
     initialSlide: 1,
@@ -18,13 +20,16 @@ export class TripsPage implements OnInit {
   };
  
   constructor(private tripsService: TripsService, public afAuth: AngularFireAuth, private storage: Storage) { 
-    this.trips = this.tripsService.getTrips();
 
   }
 
   async ngOnInit() { 
-    this.storage.get('userNickname').then(nickname => {
-      console.log(nickname);
-    });
+    var idAux;
+    await this.storage.get('userId').then(id => {
+      idAux = id;
+    })
+
+    this.idUser = idAux;
+    this.trips = this.tripsService.getTrips(this.idUser);
   }
 }

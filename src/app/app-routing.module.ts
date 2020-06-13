@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'friends',
+    loadChildren: () => import('./pages/friends/friends.module').then( m => m.FriendsPageModule)
   }
 
 

@@ -7,6 +7,7 @@ import {
 } from "@angular/fire/firestore";
 import { map, take } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { Storage } from '@ionic/storage';
 
 export interface Trip {
   id?: string;
@@ -14,6 +15,7 @@ export interface Trip {
   foto: string;
   fecha_ini: string;
   fecha_fin: string;
+  participantes?: any;
 }
 
 @Injectable({
@@ -25,8 +27,8 @@ export class TripsService {
   private tripDoc: AngularFirestoreDocument<Trip>;
 
 
-  constructor(private afs: AngularFirestore) {
-    this.tripCollection = this.afs.collection<Trip>("trips");
+  constructor(private afs: AngularFirestore, public storage: Storage) {
+    this.tripCollection = this.afs.collection<Trip>('trips');
     this.trips = this.tripCollection.snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
@@ -37,27 +39,19 @@ export class TripsService {
       })
     );
   }
+  getTrips(idUser): Observable<Trip[]> {
 
-  getTrips(): Observable<Trip[]> {
-    return this.trips;
-
-    //return this.afs.collectionGroup<Trip>('trips', ref => ref.where('titulo', '==', 'ne'))
-    //.valueChanges();
-  }
-  /*
-  getTrip(id: string): Observable<Trip> {
-    const tripDocuments = this.afs.doc<Trip>('trips/' + id);
-    return tripDocuments.snapshotChanges()
-      .pipe(map(changes => {
-          const data = changes.payload.data();
-          const id = changes.payload.id;
+    return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser).orderBy('fecha_ini'))
+    .snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
           return { id, ...data };
-      }))
+        });
+      })
+    );
   }
-/*
-  searchTrips(titulo: string): Observable<Trip> {
-    return this.tripCollection.doc
-  }*/
 
   getTrip(id: string) {  
     this.tripDoc = this.afs.doc<Trip>('trips/' + id);

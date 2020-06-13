@@ -159,7 +159,7 @@ export class CreateTripPage implements OnInit {
       }
     }
 
-    if (this.trip.foto != '') {
+    if (this.photo != undefined && this.photo != null && this.photo != '') {
       await this.afStorage.upload(this.picToStorage, this.blobData).then(async res => {
         
         const storageRef = firebase.storage().ref();

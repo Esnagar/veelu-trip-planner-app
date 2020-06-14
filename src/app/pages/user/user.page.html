@@ -7,8 +7,9 @@
   <div class="contenedor container -mt-10 z-10 flex flex-col">
     <div class="w-full flex justify-center">
       <div [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"
-          style="background-size: cover; margin-top: -7.5rem; box-shadow: 0px 7px 12px rgba(98, 89, 105, 0.2);"
-          class="rounded-full w-32 h-32 bg-cover"></div>
+          class="fotoPerfil rounded-full w-32 h-32 bg-cover z-10"></div>
+      <div [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"
+          class="fotoFondo rounded-full w-24 h-32 bg-cover absolute"></div>
     </div>
     <div class="w-full flex justify-center bold text-dark mt-5">@{{ nickname }}</div>
 

@@ -1,13 +1,15 @@
-<div class="container">
-  <page-title title="Your trips"></page-title>
-  <search-bar (change)="searchTrips($event)"></search-bar>
+<div class="containerNoPadding">
+  <div class="pt-10 px-10">
+    <page-title title="Your trips"></page-title>
+    <search-bar (change)="searchTrips($event)"></search-bar>
+  </div>
   <filters [active]="activeFilter" (filterChanged)="searchTripsFilter($event)"></filters>
   <create-button [routerLink]="['/create-trip']"></create-button>
 
 
   <div *ngIf="trips !== undefined; else loading">
     <ion-slides *ngIf="trips.length > 0; else notFound" pager="true" [options]="slideOpts">      
-      <ion-slide *ngFor="let trip of trips" class="px-2 text-left">
+      <ion-slide *ngFor="let trip of trips" class="px-10 pt-5 text-left">
           <trip-thumbnail *ngIf="(filter !== 'Current' || (filter === 'Current' && trip.fecha_ini <= date))"
            class="w-full outline-none" [info]="trip" [routerLink]="'/trip/' + trip.id" [state]="trip"></trip-thumbnail>
       </ion-slide>

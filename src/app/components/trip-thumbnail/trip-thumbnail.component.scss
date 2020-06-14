@@ -1,7 +1,14 @@
 .thumbnailViaje {
-    height: 55vh;
+    height: 45vh;
     min-height: 475px;
     background-position: center;
     background-size: cover;
     border-radius: 30px;
+}
+
+.fotoFondo {
+    margin-top: 1rem;
+    filter: blur(15px);
+    -webkit-filter: blur(15px);
+    opacity: 50%;
 }

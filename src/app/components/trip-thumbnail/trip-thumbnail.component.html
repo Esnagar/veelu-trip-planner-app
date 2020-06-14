@@ -1,6 +1,11 @@
-<div id="{{ info.id }}" 
-    [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"
-    class="thumbnailViaje flex flex-col justify-end p-8 w-full">
-  <div class="text-white">{{ info.fecha_ini | date:'MMM d' }} - {{ info.fecha_fin | date:'MMM d' }}</div>
-  <div class="text-white bold text-2xl tracking-wide">{{ info.titulo }}</div>
+<div class="w-full flex justify-center" style="height: 60vh">
+  <div [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"
+    class="thumbnailViaje fotoFondo absolute w-3/4">
+  </div>
+  <div id="{{ info.id }}" 
+      [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"
+      class="thumbnailViaje flex flex-col justify-end p-8 w-full z-10">
+    <div class="text-white">{{ info.fecha_ini | date:'MMM d' }} - {{ info.fecha_fin | date:'MMM d' }}</div>
+    <div class="text-white bold text-2xl tracking-wide">{{ info.titulo }}</div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'filters',
@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class FiltersComponent {
 
   filtros: any;
-  active: String;
+  @Input() active: String;
+  @Output() filterChanged = new EventEmitter();
 
   constructor() {
     this.filtros = [
@@ -23,5 +24,6 @@ export class FiltersComponent {
 
   changeActive(nombre) {
     this.active = nombre;
+    this.filterChanged.emit(this.active);
   }
 }

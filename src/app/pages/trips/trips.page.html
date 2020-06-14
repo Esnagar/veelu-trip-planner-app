@@ -1,20 +1,21 @@
 <div class="container">
   <page-title title="Your trips"></page-title>
-  <search-bar></search-bar>
-  <filters></filters>
+  <search-bar (change)="searchTrips($event)"></search-bar>
+  <filters [active]="activeFilter" (filterChanged)="searchTripsFilter($event)"></filters>
   <create-button [routerLink]="['/create-trip']"></create-button>
 
 
-  <div *ngIf="(trips | async) as trips; else loading">
-    <ion-slides *ngIf="trips.length > 0; else notFound" pager="true" [options]="slideOpts">
+  <div *ngIf="trips !== undefined; else loading">
+    <ion-slides *ngIf="trips.length > 0; else notFound" pager="true" [options]="slideOpts">      
       <ion-slide *ngFor="let trip of trips" class="px-2 text-left">
-        <trip-thumbnail class="w-full outline-none" [info]="trip" [routerLink]="'/trip/' + trip.id" [state]="trip"></trip-thumbnail>
+          <trip-thumbnail *ngIf="(filter !== 'Current' || (filter === 'Current' && trip.fecha_ini <= date))"
+           class="w-full outline-none" [info]="trip" [routerLink]="'/trip/' + trip.id" [state]="trip"></trip-thumbnail>
       </ion-slide>
     </ion-slides>
 
     <ng-template #notFound>
       <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
-        You don't have any trips yet.<br> Try creating one by clicking the floating button!
+        {{ noTripsMessage }}
       </div>
     </ng-template>
   </div>

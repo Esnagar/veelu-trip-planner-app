@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 export interface Trip {
   id?: string;
   titulo: string;
+  titulo_lc: string;
   foto: string;
   fecha_ini: string;
   fecha_fin: string;
@@ -39,8 +40,8 @@ export class TripsService {
       })
     );
   }
-  getTrips(idUser): Observable<Trip[]> {
 
+  getTrips(idUser): Observable<Trip[]> {
     return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser).orderBy('fecha_ini'))
     .snapshotChanges().pipe(
       map((actions) => {
@@ -51,6 +52,80 @@ export class TripsService {
         });
       })
     );
+  }
+
+  searchTrips(texto, idUser): Observable<Trip[]> {
+
+    var texto = texto.toLowerCase();
+
+    return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+                                                                     .where('titulo_lc', '>=', texto)
+                                                                     .where('titulo_lc', '<=', texto+'\uf8ff')
+                                                                     .orderBy('titulo_lc')
+                                                                     .orderBy('fecha_ini'))
+    .snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+  }
+
+  filterTrips(idUser, date, filter): Observable<Trip[]> {
+
+    switch (filter) {
+      case 'Upcoming':
+        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+                                                                      .where('fecha_ini', '>', date)
+                                                                      .orderBy('fecha_ini'))
+          .snapshotChanges().pipe(
+            map((actions) => {
+              return actions.map((a) => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return { id, ...data };
+              });
+            })
+          );
+      break;
+
+
+      case 'Past':
+        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+                                                                      .where('fecha_fin', '<', date)
+                                                                      .orderBy('fecha_fin'))
+          .snapshotChanges().pipe(
+            map((actions) => {
+              return actions.map((a) => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return { id, ...data };
+              });
+            })
+          );
+      break;  
+
+
+      case 'Current':
+        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+                                                                      .where('fecha_fin', '>=', date)
+                                                                      .orderBy('fecha_fin'))
+          .snapshotChanges().pipe(
+            map((actions) => {
+              return actions.map((a) => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return { id, ...data };
+              });
+            })
+          );
+
+
+      break;  
+    }
   }
 
   getTrip(id: string) {  

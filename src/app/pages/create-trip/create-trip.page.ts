@@ -134,6 +134,8 @@ export class CreateTripPage implements OnInit {
 
   async createTrip(data) {
     this.trip = data;
+    this.trip.titulo_lc = data.titulo.toLowerCase();
+    
     var urlPhoto, idAux, photoAux, nicknameAux;
 
     // Este es el storage local

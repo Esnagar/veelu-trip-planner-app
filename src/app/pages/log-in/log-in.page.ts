@@ -28,11 +28,12 @@ export class LogInPage {
   async login(data) {
     await this.afAuth.signInWithEmailAndPassword(data.email, data.password)
         .then(async result => {
-          this.storage.set('userId', result.user.uid);
-          this.storage.set('userNickname', result.user.displayName);
-          this.storage.set('userEmail', result.user.email);
-          this.storage.set('userPhoto', result.user.photoURL);
-          this.router.navigate(['/tabs/trips']);
+          console.log(result.user);
+          await this.storage.set('userId', result.user.uid);
+          await this.storage.set('userNickname', result.user.displayName);
+          await this.storage.set('userEmail', result.user.email);
+          await this.storage.set('userPhoto', result.user.photoURL);
+          await this.router.navigate(['/tabs/trips']);
         }).catch(error => {
           console.log(error);
           this.showToast(error.message);

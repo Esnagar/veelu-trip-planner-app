@@ -63,7 +63,7 @@ export class SignUpPage {
     this.user = {
       id: idUser,
       nick: nickname,
-      icono: 'https://vignette.wikia.nocookie.net/shinchan/images/7/70/Misae_Nohara.jpg/revision/latest/scale-to-width-down/340?cb=20161201162356&path-prefix=es'
+      icono: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/default%2Fdefault-icon.png?alt=media&token=c2421962-00f4-406b-895f-d2e001e7a88b'
     };
 
     this.usersService.createUser(this.user).then(trip => {

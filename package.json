@@ -33,7 +33,7 @@
     "@ionic/storage": "^2.2.0",
     "cordova-android-support-gradle-release": "^3.0.1",
     "firebase": "^7.15.0",
-    "rxjs": "~6.5.1",
+    "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

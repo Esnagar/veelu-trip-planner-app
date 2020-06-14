@@ -1,0 +1,18 @@
+<div class="container">
+  <arrow-back [routerLink]="['/friends']"></arrow-back>
+  <page-title title="Add friends"></page-title>
+  <search-bar placeholder="Search by nickname..." (change)="searchUsers($event)"></search-bar>
+
+  <div *ngIf="users !== undefined" class="mt-8">
+    <div *ngFor="let user of users">
+      <user-row [icon]="user.icono" [nickname]="user.nick"></user-row>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+      We couldn't find any user with that name :( 
+    </div>
+  </ng-template>
+
+</div>

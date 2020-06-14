@@ -1,7 +1,7 @@
 <div class="containerNoPadding">
   <div class="pt-10 px-10">
     <page-title title="Your trips"></page-title>
-    <search-bar (change)="searchTrips($event)"></search-bar>
+    <search-bar placeholder="Search by title..." (change)="searchTrips($event)"></search-bar>
   </div>
   <filters [active]="activeFilter" (filterChanged)="searchTripsFilter($event)"></filters>
   <create-button [routerLink]="['/create-trip']"></create-button>
@@ -16,14 +16,14 @@
     </ion-slides>
 
     <ng-template #notFound>
-      <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+      <div class="px-10 w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
         {{ noTripsMessage }}
       </div>
     </ng-template>
   </div>
 
   <ng-template #loading>
-    <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+    <div class="px-10 w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
       . . .
     </div>
   </ng-template>

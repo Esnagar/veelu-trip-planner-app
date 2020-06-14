@@ -24,7 +24,6 @@ export class TripsPage implements OnInit {
   };
  
   constructor(private tripsService: TripsService, public afAuth: AngularFireAuth, private storage: Storage) { 
-
   }
 
   async ngOnInit() {

@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>friends</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="container">
+  <arrow-back [routerLink]="['/tabs/user']"></arrow-back>
+  <page-title title="Friends"></page-title>
+  <create-button [routerLink]="['/add-friend']"></create-button>
 
-<ion-content>
+  <div *ngIf="friends !== undefined && friends.length > 0; else noFriends" class="mt-8">
+    <div *ngFor="let friend of friends">
+      <user-row *ngIf="friend.users[0] !== nick; else other" [icon]="friend.icons[0]" [nickname]="friend.users[0]"></user-row>
+      <ng-template #other>
+        <user-row [icon]="friend.icons[1]" [nickname]="friend.users[1]"></user-row>
+      </ng-template>
+    </div>
+  </div>
 
-</ion-content>
+  <ng-template #noFriends>
+    <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+      Oops! It looks like you didn't add any friend yet. Try sending a request clicking the floating button!
+    </div>
+  </ng-template>
+
+
+</div>

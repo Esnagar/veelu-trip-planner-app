@@ -25,7 +25,7 @@ export class SignUpPage {
                                 password: ['', Validators.required]});
   }
 
-  googleSingUp () {
+  googleSignUp () {
     this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
@@ -63,6 +63,7 @@ export class SignUpPage {
     this.user = {
       id: idUser,
       nick: nickname,
+      nick_lc: nickname.toLowerCase(),
       icono: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/default%2Fdefault-icon.png?alt=media&token=c2421962-00f4-406b-895f-d2e001e7a88b'
     };
 

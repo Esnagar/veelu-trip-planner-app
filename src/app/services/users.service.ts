@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 export interface User {
   id?: string;
   nick: string;
+  nick_lc: string;
   icono: string;
 }
 

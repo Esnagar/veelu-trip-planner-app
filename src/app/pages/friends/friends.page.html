@@ -1,16 +1,19 @@
 <div class="container">
   <arrow-back [routerLink]="['/tabs/user']"></arrow-back>
   <page-title title="Friends"></page-title>
-  <create-button [routerLink]="['/add-friend']"></create-button>
+  <create-button [routerLink]="['/add-friend']" [state]="[friends]"></create-button>
 
   <div *ngIf="friends !== undefined && friends.length > 0; else noFriends" class="mt-8">
-    <div *ngFor="let friend of friends">
+    <div *ngFor="let friend of friends" class="flex justify-between items-center">
       <user-row *ngIf="friend.users[0] !== nick; else other" [icon]="friend.icons[0]" [nickname]="friend.users[0]"></user-row>
       <ng-template #other>
         <user-row [icon]="friend.icons[1]" [nickname]="friend.users[1]"></user-row>
       </ng-template>
+      <small-button [textButton]="friend.status"></small-button>
     </div>
   </div>
+
+
 
   <ng-template #noFriends>
     <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">

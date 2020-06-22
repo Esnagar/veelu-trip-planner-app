@@ -7,13 +7,14 @@ import { Storage } from '@ionic/storage';
 export interface User {
   id?: string;
   nick: string;
+  nick_lc: string;
   icono: string;
 }
 
 export interface Friends {
   users: Array<string>;
   icons: Array<string>;
-  state: string;
+  status: string;
 }
 
 @Injectable({

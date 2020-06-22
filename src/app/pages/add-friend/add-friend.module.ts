@@ -11,6 +11,7 @@ import { ArrowBackComponent } from 'src/app/components/arrow-back/arrow-back.com
 import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
 import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.component';
 import { UserRowComponent } from 'src/app/components/user-row/user-row.component';
+import { SmallButtonComponent } from 'src/app/components/small-button/small-button.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { UserRowComponent } from 'src/app/components/user-row/user-row.component
     IonicModule,
     AddFriendPageRoutingModule
   ],
-  declarations: [AddFriendPage, ArrowBackComponent, PageTitleComponent, SearchBarComponent, UserRowComponent]
+  declarations: [AddFriendPage, ArrowBackComponent, PageTitleComponent, SearchBarComponent, UserRowComponent, SmallButtonComponent]
 })
 export class AddFriendPageModule {}

@@ -1,0 +1,13 @@
+@import "../../../theme/colors.scss";
+
+.void {
+    color: $candypop;
+    -webkit-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    -moz-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    box-shadow:inset 0px 0px 0px 1.2px $candypop;
+}
+
+.pink {
+    color: white;
+    background-color: $candypop;
+}

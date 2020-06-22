@@ -8,11 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UserRowComponent implements OnInit {
 
   @Input() nickname;
-  @Input() state;
   @Input() icon;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

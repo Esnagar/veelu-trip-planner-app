@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { FriendsService, Friends } from 'src/app/services/friends.service';
+import { FriendsService, Friend } from 'src/app/services/friends.service';
 
 @Component({
   selector: 'app-friends',
@@ -10,7 +10,7 @@ import { FriendsService, Friends } from 'src/app/services/friends.service';
 export class FriendsPage implements OnInit {
 
   nick: string;
-  friends: Friends[];
+  friends: Friend[];
 
   constructor(private storage: Storage, private friendsService: FriendsService) { }
 

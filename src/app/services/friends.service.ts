@@ -3,15 +3,10 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentReference, Angula
 import { map, take } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { Storage } from '@ionic/storage';
+import { User } from './users.service';
 
-export interface User {
+export interface Friend {
   id?: string;
-  nick: string;
-  nick_lc: string;
-  icono: string;
-}
-
-export interface Friends {
   users: Array<string>;
   icons: Array<string>;
   status: string;
@@ -22,15 +17,16 @@ export interface Friends {
 })
 
 export class FriendsService {
-  private friends: Observable<Friends[]>;
+  private friends: Observable<Friend[]>;
   private users: Observable<User[]>;
-  private userCollection: AngularFirestoreCollection<User>;
-  private userDoc: AngularFirestoreDocument<User>;
+  private friendCollection: AngularFirestoreCollection<Friend>;
 
-  constructor(private afs: AngularFirestore, public storage: Storage) {
+  constructor(private afs: AngularFirestore, public storage: Storage) { 
+    this.friendCollection = this.afs.collection<Friend>('friends');
   }
 
-  getUsers(nickname): Observable<User[]> {
+
+  searchUsers(nickname): Observable<User[]> {
     return this.users = this.afs.collection<User>('users', ref => ref.where('nick_lc', '>=', nickname)
                                                                       .where('nick_lc', '<=', nickname+'\uf8ff')
                                                                       .orderBy('nick_lc'))
@@ -45,8 +41,9 @@ export class FriendsService {
     );
   }
 
-  getFriends(currentUserNick): Observable<Friends[]> {
-    return this.friends = this.afs.collection<Friends>('friends', ref => ref.where('users', 'array-contains', currentUserNick))
+  getFriends(currentUserNick): Observable<Friend[]> {
+    return this.friends = this.afs.collection<Friend>('friends', ref => ref.where('users', 'array-contains', currentUserNick)
+                                                                           .orderBy('status', 'desc'))
     .snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
@@ -58,26 +55,18 @@ export class FriendsService {
     );
   }
 
-  getUser(id: string) {  
-    this.userDoc = this.afs.doc<User>('users/' + id);
-    return this.userDoc.valueChanges();  
+  createFriend(friend: Friend): Promise<DocumentReference> {
+    return this.friendCollection.add(friend);
   }
 
-  createUser(user: User): Promise<void> {
-    // Se hace un set y no un add para poder crear un doc con el ID que queramos
-    return this.userCollection
-      .doc(user.id)
-      .set({ nick: user.nick, icono: user.icono });
+  updateFriend(id, status_variable): Promise<void> {
+    return this.friendCollection
+      .doc(id)
+      .update({ status: status_variable });
   }
 
-  updateUser(user: User): Promise<void> {
-    return this.userCollection
-      .doc(user.id)
-      .update({ nick: user.nick, icono: user.icono });
+  deleteFriend(id: string): Promise<void> {
+    console.log(id);
+    return this.friendCollection.doc(id).delete();
   }
-
-  deleteUser(id: string): Promise<void> {
-    return this.userCollection.doc(id).delete();
-  }
-
 }

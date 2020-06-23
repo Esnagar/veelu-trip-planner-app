@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'small-button',
@@ -12,8 +12,19 @@ export class SmallButtonComponent implements OnInit {
   
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.textButton.currentValue != null) {
+      this.textButton = changes.textButton.currentValue;
+      this.initButton(this.textButton);
+    }
+  }
+
   ngOnInit() {
-    switch (this.textButton) {
+    this.initButton(this.textButton);
+  }
+
+  initButton(text) {
+    switch (text) {
       case 'accepted':
         this.button = ['Unfollow', 'void'];
         break;
@@ -30,5 +41,4 @@ export class SmallButtonComponent implements OnInit {
         break;
     }
   }
-
 }

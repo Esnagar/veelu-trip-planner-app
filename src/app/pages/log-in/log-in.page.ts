@@ -30,7 +30,7 @@ export class LogInPage {
         .then(async result => {
           console.log(result.user);
           await this.storage.set('userId', result.user.uid);
-          await this.storage.set('userNickname', result.user.displayName);
+          await this.storage.set('userNickname', result.user.displayName.toLowerCase());
           await this.storage.set('userEmail', result.user.email);
           await this.storage.set('userPhoto', result.user.photoURL);
           await this.router.navigate(['/tabs/trips']);

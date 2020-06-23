@@ -40,7 +40,7 @@ export class SignUpPage {
         })
 
         this.storage.set('userId', result.user.uid);
-        this.storage.set('userNickname', result.user.displayName);
+        this.storage.set('userNickname', result.user.displayName.toLowerCase());
         this.storage.set('userEmail', result.user.email);
         this.storage.set('userPhoto', result.user.photoURL);
 

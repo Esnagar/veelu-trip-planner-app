@@ -60,4 +60,12 @@ ion-toast.toast-warning {
     bottom: 500px;
     position: fixed;
 }
-  
+
+.alert-confirm .alert-wrapper {
+    --box-shadow: none;
+    box-shadow: none;
+}
+
+.alert-confirm .secondary {
+    margin-right: 2rem;
+}

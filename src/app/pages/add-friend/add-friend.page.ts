@@ -44,23 +44,12 @@ export class AddFriendPage implements OnInit {
   }
 
   async toggleFollow(friend, i) {
-    if (friend[2] == 'accepted' || friend[2] == 'pending') { // there is a petition created
-      this.friendsService.deleteFriend(friend[3]); // el id
-      this.users[i][2] = 'no-friend';
-      this.users[i][3] = ''; // ya no hay id porque no hay peticion
-    } else if (friend[2] == 'no-friend') { // we send the request
-      this.request = {
-        users: [this.nickLogged, friend[0]],
-        icons: [this.iconLogged, friend[1]],
-        status: 'pending'
-      }
-      var newId = (await this.friendsService.createFriend(this.request)).id;
-      this.users[i][2] = 'pending';
-      this.users[i][3] = newId;
-    }
+    this.friendsService.toggleFollow(friend[0], friend[1], friend[2], friend[3], this.users, i, this.nickLogged, this.iconLogged).then(res => {
+      this.users = res;
+    });
   }
 
-  searchUsers(e) {
+  async searchUsers(e) {
     var search = ((<HTMLInputElement>document.getElementById('busqueda')).value).toLowerCase();
 
     if (search != '') {
@@ -70,6 +59,7 @@ export class AddFriendPage implements OnInit {
       this.friendsService.searchUsers(search).subscribe(usuarios => {
         for (let i = 0; i < usuarios.length; i++) {
           const user = usuarios[i];
+          var found = false;
 
           for (let j = 0; j < this.friends.length; j++) {
             const friend = this.friends[j];
@@ -78,20 +68,22 @@ export class AddFriendPage implements OnInit {
               if (((user.nick_lc == friend.users[0] && this.nickLogged == friend.users[1]) ||
                    (user.nick_lc == friend.users[1] && this.nickLogged == friend.users[0])) && friend.status == 'accepted') {
                 this.users.push([user.nick_lc, user.icono, 'accepted', friend.id]);
+                found = true;
                 break;
               } else if (((user.nick_lc == friend.users[0] && this.nickLogged == friend.users[1]) ||
                          (user.nick_lc == friend.users[1] && this.nickLogged == friend.users[0])) && friend.status == 'pending') {
                 this.users.push([user.nick_lc, user.icono, 'pending', friend.id]);
-                break;
-              } else {
-                this.users.push([user.nick_lc, user.icono, 'no-friend']);
+                found = true;
                 break;
               }
             }
           }
+          if (user.nick_lc != this.nickLogged && !found) {
+            this.users.push([user.nick_lc, user.icono, 'no-friend']);
+          }
+
         }
       }); 
     }
   }
-
 }

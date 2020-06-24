@@ -4,12 +4,15 @@
   <create-button [routerLink]="['/add-friend']" [state]="[friends]"></create-button>
 
   <div *ngIf="friends !== undefined && friends.length > 0; else noFriends" class="mt-8">
-    <div *ngFor="let friend of friends" class="flex justify-between items-center">
-      <user-row *ngIf="friend.users[0] !== nick; else other" [icon]="friend.icons[0]" [nickname]="friend.users[0]"></user-row>
+    <div *ngFor="let friend of friends; index as i" class="flex justify-between items-center">
+      <div *ngIf="friend.users[0] !== nickLogged; else other">
+        <user-row [icon]="friend.icons[0]" [nickname]="friend.users[0]"></user-row>
+        <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 0, i)"></small-button>
+      </div>
       <ng-template #other>
         <user-row [icon]="friend.icons[1]" [nickname]="friend.users[1]"></user-row>
+        <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 1, i)"></small-button>
       </ng-template>
-      <small-button [textButton]="friend.status"></small-button>
     </div>
   </div>
 

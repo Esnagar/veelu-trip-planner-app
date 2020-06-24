@@ -9,22 +9,35 @@ import { FriendsService, Friend } from 'src/app/services/friends.service';
 })
 export class FriendsPage implements OnInit {
 
-  nick: string;
+  nickLogged: string;
+  iconLogged: string;
   friends: Friend[];
 
   constructor(private storage: Storage, private friendsService: FriendsService) { }
 
   async ngOnInit() {
-    var nickAux;
+    var nickAux, iconAux;
     await this.storage.get('userNickname').then(nick => {
       nickAux = nick;
     })
 
-    this.nick = nickAux;
+    await this.storage.get('userPhoto').then(icon => {
+      iconAux = icon;
+    })
 
-    this.friendsService.getFriends(this.nick).subscribe(val => {
+    this.nickLogged = nickAux;
+    this.iconLogged = iconAux;
+
+    this.friendsService.getFriends(this.nickLogged).subscribe(val => {
       this.friends = val;
     });  
+  }
+
+  
+  async toggleFollow(friend, n, i) {
+    this.friendsService.toggleFollow(friend.users[n], friend.icons[n], friend.status, friend.id, this.friends, i, this.nickLogged, this.iconLogged).then(res => {
+      this.friends = res;
+    });
   }
 
 }

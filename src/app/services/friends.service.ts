@@ -4,6 +4,7 @@ import { map, take } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { Storage } from '@ionic/storage';
 import { User } from './users.service';
+import { AlertController } from '@ionic/angular';
 
 export interface Friend {
   id?: string;
@@ -21,7 +22,7 @@ export class FriendsService {
   private users: Observable<User[]>;
   private friendCollection: AngularFirestoreCollection<Friend>;
 
-  constructor(private afs: AngularFirestore, public storage: Storage) { 
+  constructor(private afs: AngularFirestore, public storage: Storage, public alertController: AlertController) { 
     this.friendCollection = this.afs.collection<Friend>('friends');
   }
 
@@ -66,7 +67,61 @@ export class FriendsService {
   }
 
   deleteFriend(id: string): Promise<void> {
-    console.log(id);
     return this.friendCollection.doc(id).delete();
+  }
+
+
+  async toggleFollow(friendNick, friendIcon, friendStatus, idRequest, users, i, nickLogged, iconLogged) {
+    if (friendStatus == 'accepted' || friendStatus == 'pending') { // there is a petition created
+      return this.alertConfirmAction(friendNick).then(res => {
+        if (res == 'yes') {
+          this.deleteFriend(idRequest); // el id
+          users[i][2] = 'no-friend';
+          users[i][3] = ''; // ya no hay id porque no hay peticion
+
+          return users;
+        } else {
+          return users;
+        }
+      });
+
+    } else if (friendStatus == 'no-friend') { // we send the request
+      var request = {
+        users: [nickLogged, friendNick],
+        icons: [iconLogged, friendIcon],
+        status: 'pending'
+      }
+      var newId = (await this.createFriend(request)).id;
+      users[i][2] = 'pending';
+      users[i][3] = newId;
+      return users;
+    }
+  }
+
+  async alertConfirmAction(username) {
+    return new Promise(async (resolve) => {
+      const alert = await this.alertController.create({
+        cssClass: 'alert-confirm',
+        header: 'Unfollow',
+        message: 'Stop following <strong>' + username + '</strong>?',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              resolve('no');
+            }
+          }, {
+            text: 'Yes',
+            handler: () => {
+              resolve('yes');
+            }
+          }
+        ]
+      });
+
+      await alert.present();
+    });
   }
 }

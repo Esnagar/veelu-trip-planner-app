@@ -91,6 +91,10 @@
     box-shadow:inset 0px 0px 0px 1.2px $rosaClarito;
 }
 
+.bg-pink-pressed:focus {
+    background-color: $rosaOscuro;
+}
+
 .shadow-pink {
     box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
 }

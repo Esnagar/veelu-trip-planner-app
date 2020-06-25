@@ -12,10 +12,12 @@ export class FriendsPage implements OnInit {
   nickLogged: string;
   iconLogged: string;
   friends: Friend[];
+  loaded: boolean;
 
   constructor(private storage: Storage, private friendsService: FriendsService) { }
 
   async ngOnInit() {
+    this.loaded = false;
     var nickAux, iconAux;
     await this.storage.get('userNickname').then(nick => {
       nickAux = nick;
@@ -30,6 +32,7 @@ export class FriendsPage implements OnInit {
 
     this.friendsService.getFriends(this.nickLogged).subscribe(val => {
       this.friends = val;
+      this.loaded = true;
     });  
   }
 

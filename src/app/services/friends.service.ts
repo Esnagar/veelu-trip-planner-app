@@ -56,14 +56,28 @@ export class FriendsService {
     );
   }
 
+  getRequests(currentUserNick): Observable<Friend[]> {
+    return this.friends = this.afs.collection<Friend>('friends', ref => ref.where('users', 'array-contains', currentUserNick)
+                                                                           .where('status', '==', 'pending'))
+    .snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+  }
+
   createFriend(friend: Friend): Promise<DocumentReference> {
     return this.friendCollection.add(friend);
   }
 
-  updateFriend(id, status_variable): Promise<void> {
+  updateFriend(id): Promise<void> {
     return this.friendCollection
       .doc(id)
-      .update({ status: status_variable });
+      .update({ status: 'accepted' });
   }
 
   deleteFriend(id: string): Promise<void> {

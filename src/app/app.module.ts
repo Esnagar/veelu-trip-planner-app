@@ -17,6 +17,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
 
 import { enterAnimation } from './animations/page-transition';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +34,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFirestoreModule, 
     AngularFireAuthModule, 
     AngularFireStorageModule, 
+    AngularFireFunctionsModule,
     ReactiveFormsModule,
     IonicStorageModule.forRoot()
   ],
@@ -42,7 +44,8 @@ import { IonicStorageModule } from '@ionic/storage';
     File,
     PhotoViewer,
     ImagePicker,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: REGION, useValue: 'europe-west1' }
   ],
   bootstrap: [AppComponent]
 })

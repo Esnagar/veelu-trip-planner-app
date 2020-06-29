@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.esnagar.veelu",
   "appName": "veelu",
   "bundledWebRuntime": false,
   "npmClient": "npm",
@@ -9,5 +9,22 @@
       "launchShowDuration": 0
     }
   },
-  "cordova": {}
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000"
+    }
+  },
+  "server": {
+    "url": "http://192.168.0.105:8100",
+    "cleartext": true,
+    "originalUrl": "http://192.168.0.105:8100",
+    "originalCleartext": true
+  }
 }

@@ -19,22 +19,8 @@ export class AddFriendPage implements OnInit {
 
   constructor(private friendsService: FriendsService, private storage: Storage, private route: ActivatedRoute) { }
 
-  async ngOnInit() {
-    this.users = [];
-    this.searched = false;
-
-    var nicknameAux, iconAux;
-
-    await this.storage.get('userNickname').then(nick => {
-      nicknameAux = nick;
-    });
-
-    await this.storage.get('userPhoto').then(icon => {
-      iconAux = icon;
-    });
-
-    this.nickLogged = nicknameAux;
-    this.iconLogged = iconAux;
+  ngOnInit() {
+    this.getUserInfo();
 
     this.route.paramMap.subscribe(params => {
       if (history.state.navigationId !== 'undefined' && history.state.navigationId !== 1) {
@@ -43,14 +29,20 @@ export class AddFriendPage implements OnInit {
     });
   }
 
+  ionViewWillEnter () {
+    (<HTMLInputElement>document.getElementById('busqueda')).value = '';
+    this.users = [];
+    this.searched = false;
+  }
+
   async toggleFollow(friend, i) {
     this.friendsService.toggleFollow(friend[0], friend[1], friend[2], friend[3], this.users, i, this.nickLogged, this.iconLogged).then(res => {
       this.users = res;
     });
   }
 
-  async searchUsers(e) {
-    var search = ((<HTMLInputElement>document.getElementById('busqueda')).value).toLowerCase();
+  async searchUsers(event) {
+    var search = event.target.value.toLowerCase();
 
     if (search != '') {
       this.users = [];
@@ -85,5 +77,20 @@ export class AddFriendPage implements OnInit {
         }
       }); 
     }
+  }
+
+  async getUserInfo() {
+    var nicknameAux, iconAux;
+
+    await this.storage.get('userNickname').then(nick => {
+      nicknameAux = nick;
+    });
+
+    await this.storage.get('userPhoto').then(icon => {
+      iconAux = icon;
+    });
+
+    this.nickLogged = nicknameAux;
+    this.iconLogged = iconAux;
   }
 }

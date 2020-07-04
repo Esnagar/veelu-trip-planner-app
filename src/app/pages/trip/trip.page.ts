@@ -34,6 +34,7 @@ export class TripPage implements OnInit {
         let id = this.router.url.split('/')[2];
         this.tripsService.getTrip(id).subscribe(trip => {
           this.trip = trip;
+          this.trip.id = id;
           this.loaded = true;
         });
       }

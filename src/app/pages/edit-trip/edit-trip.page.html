@@ -1,0 +1,36 @@
+<div class="container" *ngIf="loaded">
+  <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip" (click)="form.reset()"></arrow-back>
+  <page-title title='Edit trip'></page-title>
+
+  <form [formGroup]="form" (ngSubmit)="checkForm(form.value)" class="flex flex-col justify-between" style="height: 75vh;">
+    <div>
+      <label label='Title'></label>
+      <input [value]="trip.titulo" type="text" formControlName="titulo" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+
+      <label label='Description' optional=true></label>
+      <textarea [value]="trip.descripcion" type="text" formControlName="descripcion" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-3" rows="2"></textarea>
+
+      <div class="flex w-full">
+        <div class="mr-3 w-full">
+          <label label='Starts'></label>
+          <ion-datetime [value]="trip.fecha_ini" displayFormat="DD MMM YY" monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+                        min="1995-01-01" max="2050-12-31"
+                        formControlName="fecha_ini" 
+                        class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
+
+        </div>
+        <div class="ml-3 w-full">
+          <label label='Ends'></label>
+          <ion-datetime [value]="trip.fecha_fin" displayFormat="DD MMM YY" monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+                        min="1995-01-01" max="2050-12-31"
+                        formControlName="fecha_fin" 
+                        class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5 h-10"></ion-datetime>
+        </div>
+      </div>
+
+      <label label='Trip cover' optional=true></label>
+      <upload-cover id="cover" (click)="selectPicture()"></upload-cover>
+    </div>
+  <main-button class="w-full" text="Edit trip" type="submit"></main-button>
+</form>
+</div>

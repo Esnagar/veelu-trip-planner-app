@@ -69,3 +69,16 @@ ion-toast.toast-warning {
 .alert-confirm .secondary {
     margin-right: 2rem;
 }
+
+.custom-popover .popover-content {
+    width: 150px !important;
+    top: 45px !important;
+    right: 45px !important;
+    left: auto !important;
+    transform-origin: right top !important;
+}
+
+.custom-popover .list-md {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}

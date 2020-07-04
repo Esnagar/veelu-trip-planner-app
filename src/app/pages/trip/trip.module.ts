@@ -11,6 +11,7 @@ import { ArrowBackComponent } from 'src/app/components/arrow-back/arrow-back.com
 import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
 import { LabelComponent } from 'src/app/components/label/label.component';
 import { MainButtonComponent } from 'src/app/components/main-button/main-button.component';
+import { ButtonsMoreComponent } from 'src/app/components/buttons-more/buttons-more.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { MainButtonComponent } from 'src/app/components/main-button/main-button.
     IonicModule,
     TripPageRoutingModule
   ],
-  declarations: [TripPage, ArrowBackComponent, PageTitleComponent, LabelComponent, MainButtonComponent]
+  declarations: [TripPage, ArrowBackComponent, PageTitleComponent, LabelComponent, MainButtonComponent, ButtonsMoreComponent]
 })
 export class TripPageModule {}

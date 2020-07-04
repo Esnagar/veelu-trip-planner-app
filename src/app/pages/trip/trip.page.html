@@ -3,8 +3,10 @@
     [ngStyle]="{'background-image': 'url(' + trip.foto + ')'}"
     class="fotoViaje flex flex-col justify-between p-8 pb-16 w-full"
   >
+  <div class="flex items-center justify-between">
     <arrow-back type="white" [routerLink]="['/tabs/trips/']"></arrow-back>
-
+    <buttons-more type="white" [sectionName]="'trip'" [data]="[trip]"></buttons-more>
+  </div>
     <div>
       <div class="text-white">
         {{ trip.fecha_ini | date:'MMM d' }} - {{ trip.fecha_fin | date:'MMM d' }}

@@ -13,6 +13,7 @@ export interface Trip {
   id?: string;
   titulo: string;
   titulo_lc: string;
+  descripcion?: string;
   foto: string;
   fecha_ini: string;
   fecha_fin: string;
@@ -140,7 +141,9 @@ export class TripsService {
   updateTrip(trip: Trip): Promise<void> {
     return this.tripCollection
       .doc(trip.id)
-      .update({ titulo: trip.titulo, foto: trip.foto });
+      .update({ titulo: trip.titulo, titulo_lc: trip.titulo.toLowerCase(),
+                fecha_ini: trip.fecha_ini, fecha_fin: trip.fecha_fin, descripcion: trip.descripcion,
+                foto: trip.foto });
   }
 
   deleteTrip(id: string): Promise<void> {

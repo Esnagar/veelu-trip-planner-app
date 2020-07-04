@@ -43,11 +43,11 @@ export class TripsPage implements OnInit {
     speed: 400
   };
  
-  constructor(private tripsService: TripsService, public afAuth: AngularFireAuth, private router: Router, private storage: Storage, private afs: AngularFirestore) { }
+  constructor(private tripsService: TripsService, public afAuth: AngularFireAuth, private router: Router, private storage: Storage, private afs: AngularFirestore) {
+    this.prepareNotifications();
+  }
 
   async ngOnInit() {
-    this.prepareNotifications();
-
     this.activeFilter = 'All';
     this.date = new Date(Date.now()).toISOString();
     this.noTripsMessage = "You don't have any trips yet. Try creating one by clicking the floating button!";

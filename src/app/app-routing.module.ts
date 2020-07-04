@@ -33,7 +33,8 @@ const routes: Routes = [
   {
     path: 'trip/:id',
     loadChildren: () => import('./pages/trip/trip.module').then( m => m.TripPageModule)
-  },  {
+  },
+  {
     path: 'edit-profile',
     loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'add-friend',
     loadChildren: () => import('./pages/add-friend/add-friend.module').then( m => m.AddFriendPageModule)
+  },
+  {
+    path: 'edit-trip/:id',
+    loadChildren: () => import('./pages/edit-trip/edit-trip.module').then( m => m.EditTripPageModule)
   }
 
 

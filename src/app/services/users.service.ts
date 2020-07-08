@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { Storage } from '@ionic/storage';
 
 export interface User {
-  id?: string;
+  id: string;
   nick: string;
   nick_lc: string;
   icono: string;
@@ -55,7 +55,7 @@ export class UsersService {
     // Se hace un set y no un add para poder crear un doc con el ID que queramos
     return this.userCollection
       .doc(user.id)
-      .set({ nick: user.nick, icono: user.icono });
+      .set({ nick: user.nick, icono: user.icono, nick_lc: user.nick.toLowerCase(), id: user.id });
   }
 
   updateUser(user: User): Promise<void> {

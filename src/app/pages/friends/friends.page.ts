@@ -37,8 +37,9 @@ export class FriendsPage implements OnInit {
   }
 
   
-  async toggleFollow(friend, n, i) {
-    this.friendsService.toggleFollow(friend.users[n], friend.icons[n], friend.status, friend.id, this.friends, i, this.nickLogged, this.iconLogged).then(res => {
+  async toggleFollow(friend, n, n2, i) {
+    this.friendsService.toggleFollow(friend.users[n], friend.icons[n], friend.status, friend.id, this.friends, i, 
+                                      this.nickLogged, this.iconLogged, friend.ids[n], friend.ids[n2]).then(res => {
       this.friends = res;
     });
   }

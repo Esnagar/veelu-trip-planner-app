@@ -9,12 +9,12 @@
         <div *ngIf="friend.users[0] !== nickLogged; else other" class="flex justify-between items-center w-full">
           <div *ngIf="friend.status != 'pending'" class="flex justify-between items-center w-full">
             <user-row [icon]="friend.icons[0]" [nickname]="friend.users[0]"></user-row>
-            <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 0, i)"></small-button>
+            <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 0, 1, i)"></small-button>
           </div>
         </div>
         <ng-template #other class="w-full flex justify-between items-center">
           <user-row [icon]="friend.icons[1]" [nickname]="friend.users[1]"></user-row>
-          <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 1, i)"></small-button>
+          <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 1, 0, i)"></small-button>
         </ng-template>
       </div>
     </div>

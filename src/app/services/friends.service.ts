@@ -8,6 +8,7 @@ import { AlertController } from '@ionic/angular';
 
 export interface Friend {
   id?: string;
+  ids: Array<string>;
   users: Array<string>;
   icons: Array<string>;
   status: string;
@@ -71,6 +72,7 @@ export class FriendsService {
   }
 
   createFriend(friend: Friend): Promise<DocumentReference> {
+    console.log(friend);
     return this.friendCollection.add(friend);
   }
 
@@ -85,7 +87,7 @@ export class FriendsService {
   }
 
 
-  async toggleFollow(friendNick, friendIcon, friendStatus, idRequest, users, i, nickLogged, iconLogged) {
+  async toggleFollow(friendNick, friendIcon, friendStatus, idRequest, users, i, nickLogged, iconLogged, idLogged, friendId) {
     if (friendStatus == 'accepted' || friendStatus == 'pending') { // there is a petition created
       return this.alertConfirmAction(friendNick).then(res => {
         if (res == 'yes') {
@@ -101,6 +103,7 @@ export class FriendsService {
 
     } else if (friendStatus == 'no-friend') { // we send the request
       var request = {
+        ids: [idLogged, friendId],
         users: [nickLogged, friendNick],
         icons: [iconLogged, friendIcon],
         status: 'pending'

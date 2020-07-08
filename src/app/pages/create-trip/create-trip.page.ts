@@ -151,15 +151,17 @@ export class CreateTripPage implements OnInit {
       nicknameAux = nick;
     })
 
-    this.trip.participantes = {
-      'user': {
-        'id': idAux,
-        'aceptado': true,
-        'rol': 'owner',
-        'icono': photoAux,
-        'nick': nicknameAux
-      }
-    }
+    this.trip.participantes = {};
+    this.trip.participantes[idAux] = {
+      'aceptado': true,
+      'rol': 'owner',
+      'icono': photoAux,
+      'nick': nicknameAux,
+      'nick_lc': nicknameAux.toLowerCase()
+    };
+
+    this.trip.idsParticipantes = [];
+    this.trip.idsParticipantes.push(idAux);
 
     if (this.photo != undefined && this.photo != null && this.photo != '') {
       await this.afStorage.upload(this.picToStorage, this.blobData).then(async res => {

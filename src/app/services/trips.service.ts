@@ -18,6 +18,7 @@ export interface Trip {
   fecha_ini: string;
   fecha_fin: string;
   participantes?: any;
+  idsParticipantes?: any;
 }
 
 @Injectable({
@@ -43,7 +44,7 @@ export class TripsService {
   }
 
   getTrips(idUser): Observable<Trip[]> {
-    return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser).orderBy('fecha_ini'))
+    return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('idsParticipantes', 'array-contains', idUser).orderBy('fecha_ini'))
     .snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
@@ -59,7 +60,7 @@ export class TripsService {
 
     var texto = texto.toLowerCase();
 
-    return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+    return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('idsParticipantes', 'array-contains', idUser)
                                                                      .where('titulo_lc', '>=', texto)
                                                                      .where('titulo_lc', '<=', texto+'\uf8ff')
                                                                      .orderBy('titulo_lc')
@@ -79,7 +80,7 @@ export class TripsService {
 
     switch (filter) {
       case 'Upcoming':
-        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('idsParticipantes', 'array-contains', idUser)
                                                                       .where('fecha_ini', '>', date)
                                                                       .orderBy('fecha_ini'))
           .snapshotChanges().pipe(
@@ -95,7 +96,7 @@ export class TripsService {
 
 
       case 'Past':
-        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('idsParticipantes', 'array-contains', idUser)
                                                                       .where('fecha_fin', '<', date)
                                                                       .orderBy('fecha_fin'))
           .snapshotChanges().pipe(
@@ -111,7 +112,7 @@ export class TripsService {
 
 
       case 'Current':
-        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('participantes.user.id', '==', idUser)
+        return this.trips = this.afs.collection<Trip>('trips', ref => ref.where('idsParticipantes', 'array-contains', idUser)
                                                                       .where('fecha_fin', '>=', date)
                                                                       .orderBy('fecha_fin'))
           .snapshotChanges().pipe(
@@ -144,6 +145,12 @@ export class TripsService {
       .update({ titulo: trip.titulo, titulo_lc: trip.titulo.toLowerCase(),
                 fecha_ini: trip.fecha_ini, fecha_fin: trip.fecha_fin, descripcion: trip.descripcion,
                 foto: trip.foto });
+  }
+
+  updateTravelers(idTrip, travelers, idsTravelers): Promise<void> {
+    return this.tripCollection
+      .doc(idTrip)
+      .update({ participantes: travelers, idsParticipantes: idsTravelers })
   }
 
   deleteTrip(id: string): Promise<void> {

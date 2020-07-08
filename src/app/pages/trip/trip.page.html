@@ -21,7 +21,7 @@
     class="contenedorViaje container -mt-10 z-10 flex flex-col justify-between"
   >
     <div>
-      <label label="Description"></label>
+      <label label="Description" class="mb-1"></label>
       <div *ngIf="trip.descripcion != ''; else elseBlock">
         <div class="text-dark">{{ trip.descripcion }}</div>
       </div>
@@ -31,16 +31,20 @@
     </div>
 
     <div>
-      <label label="Participants"></label>
+      <label label="Travelers" class="mb-1"></label>
       <div class="flex justify-between items-center">
-        <div class="text-dark italic">No one joined this trip yet.</div>
-        <button type="button" class="outline-none rounded-full w-14 h-14 bg-candypop text-white shadow-pink flex items-center justify-center">
+        <div class="flex items-center justify-start">
+          <div *ngFor="let traveler of trip.participantes | keyvalue" class="-mr-3">
+            <img class="w-16 h-16 rounded-full border-4 border-white shadow-button" [src]="traveler.value.icono" />
+          </div>
+        </div>
+        <button [routerLink]="['travelers']" [state]="trip" type="button" class="outline-none rounded-full w-16 h-16 bg-candypop text-white shadow-pink flex items-center justify-center">
           <img src="../../../assets/icon/user-plus.svg" />
         </button>
       </div>
     </div>
     <div>
-      <label label="Features"></label>
+      <label label="Features" class="mb-1"></label>
       <div class="flex justify-between">
         <div class="flex flex-col items-center justify-center">
           <div class="p-3 mb-2 rounded-xl shadow-button">

@@ -1,0 +1,42 @@
+<div class="container" *ngIf="loaded">
+  <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip"></arrow-back>
+  <page-title title="Add travelers"></page-title>
+  <search-bar placeholder="Search by nickname..."></search-bar>
+
+  <create-button (click)="saveTravelers()" type="save"></create-button>
+
+  <div *ngIf="friends.length > 0;">
+
+    <ion-segment scrollable class="mt-8 flex items-center">
+      <span *ngFor="let friend of friends; index as i">
+        <span *ngIf="friend.joined;" class="flex items-end mr-4">
+          <img (click)="toggleCheck(i, 0)" *ngIf="friend.friend.users[0] !== nickLogged; else other2" class="w-16 h-16 mr-4" [src]="friend.friend.icons[0]">
+          <ng-template #other2>
+            <img (click)="toggleCheck(i, 1)" class="w-16 h-16 mr-4" [src]="friend.friend.icons[1]">
+          </ng-template>
+          <div class="w-6 h-6 rounded-full bg-form-text border-2 border-white -ml-10 flex items-center justify-center">
+            <img src="../../../assets/icon/x.svg" />
+          </div>
+        </span>
+      </span>
+    </ion-segment>
+
+    <hr class="my-4">
+
+    <div *ngFor="let friend of friends; index as i" class="flex justify-between items-center">
+      <div *ngIf="friend.friend.users[0] !== nickLogged; else other" class="flex justify-between items-center w-full">
+        <div *ngIf="friend.friend.status != 'pending'" (click)="toggleCheck(i, 0)" class="flex justify-between items-center w-full">
+          <user-row [icon]="friend.friend.icons[0]" [nickname]="friend.friend.users[0]"></user-row>
+          <radio-button class="flex items-center" [checked]="friend.joined"></radio-button>
+        </div>
+      </div>
+      <ng-template #other>
+        <div class="w-full flex justify-between items-center" (click)="toggleCheck(i, 1)">
+          <user-row [icon]="friend.friend.icons[1]" [nickname]="friend.friend.users[1]"></user-row>
+          <radio-button class="flex items-center" [checked]="friend.joined"></radio-button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+</div>

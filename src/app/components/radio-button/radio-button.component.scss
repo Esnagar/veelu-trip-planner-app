@@ -1,0 +1,10 @@
+@import '../../../theme/colors.scss';
+
+.not-checked {
+    border: 2px solid $candypop;
+}
+
+.checked {
+    border: 2px solid $candypop;
+    background-color: $candypop;
+}

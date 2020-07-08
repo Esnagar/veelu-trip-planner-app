@@ -13,6 +13,7 @@ export class AddFriendPage implements OnInit {
   friends: any;
   nickLogged: string;
   iconLogged: string;
+  idLogged: string;
   request: Friend;
   users: Array<string>[] = [];
   searched: boolean;
@@ -36,7 +37,7 @@ export class AddFriendPage implements OnInit {
   }
 
   async toggleFollow(friend, i) {
-    this.friendsService.toggleFollow(friend[0], friend[1], friend[2], friend[3], this.users, i, this.nickLogged, this.iconLogged).then(res => {
+    this.friendsService.toggleFollow(friend[0], friend[1], friend[2], friend[3], this.users, i, this.nickLogged, this.iconLogged, this.idLogged, friend[4]).then(res => {
       this.users = res;
     });
   }
@@ -59,19 +60,19 @@ export class AddFriendPage implements OnInit {
             if (user.nick_lc != this.nickLogged) {
               if (((user.nick_lc == friend.users[0] && this.nickLogged == friend.users[1]) ||
                    (user.nick_lc == friend.users[1] && this.nickLogged == friend.users[0])) && friend.status == 'accepted') {
-                this.users.push([user.nick_lc, user.icono, 'accepted', friend.id]);
+                this.users.push([user.nick_lc, user.icono, 'accepted', friend.id, user.id]);
                 found = true;
                 break;
               } else if (((user.nick_lc == friend.users[0] && this.nickLogged == friend.users[1]) ||
                          (user.nick_lc == friend.users[1] && this.nickLogged == friend.users[0])) && friend.status == 'pending') {
-                this.users.push([user.nick_lc, user.icono, 'pending', friend.id]);
+                this.users.push([user.nick_lc, user.icono, 'pending', friend.id, user.id]);
                 found = true;
                 break;
               }
             }
           }
           if (user.nick_lc != this.nickLogged && !found) {
-            this.users.push([user.nick_lc, user.icono, 'no-friend']);
+            this.users.push([user.nick_lc, user.icono, 'no-friend', '', user.id]);
           }
 
         }
@@ -80,7 +81,7 @@ export class AddFriendPage implements OnInit {
   }
 
   async getUserInfo() {
-    var nicknameAux, iconAux;
+    var nicknameAux, iconAux, idAux;
 
     await this.storage.get('userNickname').then(nick => {
       nicknameAux = nick;
@@ -90,7 +91,12 @@ export class AddFriendPage implements OnInit {
       iconAux = icon;
     });
 
+    await this.storage.get('userId').then(id => {
+      idAux = id;
+    });
+
     this.nickLogged = nicknameAux;
     this.iconLogged = iconAux;
+    this.idLogged = idAux;
   }
 }

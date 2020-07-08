@@ -57,6 +57,20 @@ export class FriendsService {
     );
   }
 
+  getFriendsAccepted(currentUserNick): Observable<Friend[]> {
+    return this.friends = this.afs.collection<Friend>('friends', ref => ref.where('users', 'array-contains', currentUserNick)
+                                                                           .where('status', '==', 'accepted'))
+    .snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+  }
+
   getRequests(currentUserNick): Observable<Friend[]> {
     return this.friends = this.afs.collection<Friend>('friends', ref => ref.where('users', 'array-contains', currentUserNick)
                                                                            .where('status', '==', 'pending'))
@@ -72,7 +86,6 @@ export class FriendsService {
   }
 
   createFriend(friend: Friend): Promise<DocumentReference> {
-    console.log(friend);
     return this.friendCollection.add(friend);
   }
 

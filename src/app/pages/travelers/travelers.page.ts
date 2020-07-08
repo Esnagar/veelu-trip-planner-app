@@ -49,7 +49,7 @@ export class TravelersPage implements OnInit {
     this.iconLogged = iconAux;
     this.idLogged = idAux;
 
-    this.friendsService.getFriends(this.nickLogged).subscribe(val => {
+    this.friendsService.getFriendsAccepted(this.nickLogged).subscribe(val => {
       this.friends = [];
       var joined = false;
       var joinedBefore = false;

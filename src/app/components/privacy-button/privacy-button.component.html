@@ -1,0 +1,8 @@
+<div class="w-full flex justify-between">
+  <button [ngClass]="active == 'Group' ? 'activeFilter' : 'inactiveFilter'" class="outline-none px-6 py-2 text-lg" (click)="changeActive('Group')">
+    Group
+  </button>
+  <button [ngClass]="active == 'Private' ? 'activeFilter' : 'inactiveFilter'" class="outline-none px-6 py-2 text-lg" (click)="changeActive('Private')">
+    Private
+  </button>
+</div>

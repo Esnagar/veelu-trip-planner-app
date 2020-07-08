@@ -61,6 +61,10 @@ const routes: Routes = [
   {
     path: 'trip/:id/travelers',
     loadChildren: () => import('./pages/travelers/travelers.module').then( m => m.TravelersPageModule)
+  },
+  {
+    path: 'trip/:id/checklist',
+    loadChildren: () => import('./pages/checklist/checklist.module').then( m => m.ChecklistPageModule)
   }
 
 

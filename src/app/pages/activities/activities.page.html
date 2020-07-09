@@ -1,0 +1,40 @@
+<div class="containerNoPadding" *ngIf="loaded">
+  <div class="px-10 pt-10">
+    <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip"></arrow-back>
+    <page-title title='Trip activities'></page-title>
+  </div>
+  <create-button></create-button>
+
+  <ion-segment scrollable class="flex items-center pl-10">
+    <div *ngFor="let day of dates, index as i">
+      <button [ngClass]="active == day ? 'activeFilter' : 'inactiveFilter'" class="outline-none rounded-lg px-3 w-24 py-2 text-lg mr-5" (click)="changeActive(i)">
+        <p class="font-semibold">Day {{ i+1 }}</p>
+        <p class="text-sm">{{ day | date:'MMM d' }}</p>
+      </button>
+    </div>
+  </ion-segment>
+
+  <div class="mt-8 px-10">
+    <div *ngFor="let activitie of currentActivities, index as i, let last = last" class="text-dark w-full my-2">
+      <div class="w-full">
+        <div class="w-full flex items-center">
+          <img [src]="'../../../assets/icon/' + activitie.tipo + '.svg'" class="w-6 h-6 rounded-full bg-candypop mr-3">
+          <span class="text-candypop font-semibold wider">{{ activitie.hora }}</span>
+        </div>
+        <div class="flex pl-6 py-3 w-full items-center ml-3" [ngClass]="{ borderDotted : !last }" >
+          <div class="w-2/5 flex justify-center items-center">
+            <div [ngStyle]="{'background-image': 'url(' + activitie.foto + ')'}" class="w-full fotoActividad rounded-lg h-20 bg-cover z-10"></div>
+            <div [ngStyle]="{'background-image': 'url(' + activitie.foto + ')'}" class="w-1/6 fotoFondo rounded-lg h-20 bg-cover absolute"></div>
+          </div>
+          <div class="w-3/5 ml-5">
+            <div class="font-semibold">{{ activitie.titulo }}</div>
+            <div class="text-sm">
+              <span>{{ activitie.ubicacion }}</span>
+              <span *ngIf="activitie.precio != ''"> - {{ activitie.precio }} €</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</div>

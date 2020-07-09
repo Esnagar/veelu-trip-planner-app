@@ -1,0 +1,36 @@
+@import '../../../theme/colors.scss';
+
+.fotoActividad {
+    background-size: cover;
+}
+
+.fotoFondo {
+    background-size: cover; 
+    margin-top: 0.5rem;
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    opacity: 50%;
+}
+
+.borderDotted {
+    background-image: linear-gradient(to bottom, $candypop 10%, rgba(255, 255, 255, 0) 0%);
+    background-position: left;
+    background-size: 1.6px 14px;
+    background-repeat: repeat-y;
+}
+
+@import "../../../theme/colors.scss";
+
+.activeFilter {
+    background-color: $candypop;
+    border-radius: 15px;
+    color: white;
+    outline: none !important;
+}
+
+.inactiveFilter {
+    background-color: $grisFormulario;
+    border-radius: 15px;
+    color: $textoFormulario;
+    outline: none !important;
+}

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -45,7 +45,8 @@ import { IonicStorageModule } from '@ionic/storage';
     PhotoViewer,
     ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: REGION, useValue: 'europe-west1' }
+    { provide: REGION, useValue: 'europe-west1' },
+    { provide: LOCALE_ID, useValue: 'en-UK' }
   ],
   bootstrap: [AppComponent]
 })

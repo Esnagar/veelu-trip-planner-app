@@ -20,7 +20,7 @@ export class ChecklistPage implements OnInit {
   }
 
   ngOnInit() {
-    this.loaded = true;
+    this.loaded = false;
 
     this.route.paramMap.subscribe(params => {
       if (history.state.navigationId !== 'undefined' && history.state.navigationId !== 1) {

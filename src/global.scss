@@ -82,3 +82,15 @@ ion-toast.toast-warning {
     padding-top: 3px !important;
     padding-bottom: 3px !important;
 }
+
+ion-fab-button.create {
+    --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+ion-fab-button.main {
+    --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+    --border-radius: 45px;
+    --height: 55px;
+}

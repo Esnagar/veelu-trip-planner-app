@@ -63,6 +63,7 @@ export class ActivitiesPage implements OnInit {
 
   changeActive(n) {
     this.active = this.dates[n];
+    this.currentActivities = this.activities[n];
   }
 
 
@@ -70,48 +71,48 @@ export class ActivitiesPage implements OnInit {
     this.activities = [];
 
     this.activities.push([
-      { 
-        titulo: 'Comprar el desayuno',
-        descripcion: 'Antes de empezar el día, desayunar en un sitio barato (un super)',
+      {
+        id: 1, 
+        titulo: 'Desayunar en la cafetería del hotel',
+        descripcion: 'También podemos comprar la comida en un supermercado',
         hora: '10:00',
-        tipo: 'compras',
+        tipo: 'eating',
         ubicacion: 'Ámsterdam',
-        precio: '5',
-        foto: 'https://www.shopblogger.de/blog/uploads/2009/August/zigengroesserenSupermaerkteWennmanzuAldi_____spar_westkapelle.jpg'
+        precio: '',
+        foto: 'https://media.timeout.com/images/105500044/image.jpg'
       },
-      { 
+      {
+        id: 2, 
         titulo: 'Ir a la estación y coger el tren',
         descripcion: 'Comprar los billetes antes de salir del hotel',
         hora: '11:00',
-        tipo: 'transporte',
+        tipo: 'transport',
         ubicacion: 'Ámsterdam',
         precio: '15',
         foto: 'https://www.victorstravels.com/wp-content/uploads/2017/12/cheap-train-tickets-netherlands.jpg'
       },
       {
+        id: 3,
         titulo: 'Visitar los molinos de Zaanse Schan',
         descripcion: 'Llevar comida para almorzar',
         hora: '11:30',
-        tipo: 'explorar',
+        tipo: 'explore',
         ubicacion: 'Zaanse Schan',
         precio: '',
         foto: 'https://cdn.getyourguide.com/img/tour_img-1839472-146.jpg'
       },
-      { 
+      {
+        id: 4, 
         titulo: 'Comer en un lugar de la zona',
         descripcion: '',
         hora: '14:00',
-        tipo: 'comer',
+        tipo: 'eating',
         ubicacion: 'Zaanse Schan',
         precio: '15',
         foto: 'https://static.dezeen.com/uploads/2016/07/bar-botanique-studio-modijefsky-amsterdam-dutch-netherlands-green-forest-rainforest-tropical-foliage-_dezeen_1568_11.jpg'
       }
     ]);
 
-
     this.currentActivities = this.activities[0];
-    
   }
-
-
 }

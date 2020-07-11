@@ -1,0 +1,29 @@
+<div class="container overflow-y-auto" *ngIf="loaded">
+  <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip"></arrow-back>
+  <page-title title="Expenses"></page-title>
+  <create-button></create-button>
+  <privacy-button (filterChanged)="changeExpenses($event)"></privacy-button>
+
+  <div class="mt-8">
+    <div class="flex items-center justify-between text-xl mb-3 pr-6">
+      <span class="bold text-candypop">Total</span>
+      <span class="bold text-candypop">{{ total }} €</span>
+    </div>
+    <hr>
+
+    <div *ngFor="let expense of currentExpenses, index as i" class="shadow-button mt-5 mb-8 text-dark rounded-xl p-6">
+      <div class="flex items-center justify-between mb-5">
+        <div (click)="toggleCheck(i)" class="flex items-center">
+          <radio-button class="flex items-center mr-3" [checked]="expense.usuarios[nickLogged]"></radio-button>
+          <span *ngIf="expense.usuarios[nickLogged]; else notpaid" class="italic text-form">Paid</span>
+          <ng-template #notpaid>
+            <span class="italic text-form">Not paid</span>
+          </ng-template>
+        </div>
+        <span class="semibold text-xl">{{ expense.precio }} €</span>
+      </div>
+      <div [routerLink]="expense.id + '/expense-detail'" [state]="{'expense': expense, 'trip':trip}">{{ expense.texto }}</div>
+    </div>
+  </div>
+
+</div>

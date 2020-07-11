@@ -27,17 +27,12 @@ export class TripPage implements OnInit {
     this.loaded = false;
     
     this.route.paramMap.subscribe(params => {
-      if (history.state.navigationId !== 'undefined' && history.state.navigationId !== 1) {
-        this.trip = history.state;
+      let id = this.router.url.split('/')[2];
+      this.tripsService.getTrip(id).subscribe(trip => {
+        this.trip = trip;
+        this.trip.id = id;
         this.loaded = true;
-      } else {
-        let id = this.router.url.split('/')[2];
-        this.tripsService.getTrip(id).subscribe(trip => {
-          this.trip = trip;
-          this.trip.id = id;
-          this.loaded = true;
-        });
-      }
+      });
     });
   }
 }

@@ -81,7 +81,12 @@ const routes: Routes = [
   {
     path: 'trip/:id/diary/:id2/entry-detail',
     loadChildren: () => import('./pages/entry-detail/entry-detail.module').then( m => m.EntryDetailPageModule)
+  },
+  {
+    path: 'trip/:id/expenses',
+    loadChildren: () => import('./pages/expenses/expenses.module').then( m => m.ExpensesPageModule)
   }
+
 
 
 

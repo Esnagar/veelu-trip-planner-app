@@ -51,11 +51,11 @@ export class DiaryPage implements OnInit {
         nick: users[0].nick,
         color: 'aqua',
         fecha: '03/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.\n 
+        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.
 
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.\n
+        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
         
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.\n 
+        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
         
         In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
       },
@@ -65,11 +65,11 @@ export class DiaryPage implements OnInit {
         nick: users[1].nick,
         color: 'lime',
         fecha: '02/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.\n 
+        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis. 
 
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.\n
+        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
         
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.\n 
+        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
         
         In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
       },
@@ -79,11 +79,11 @@ export class DiaryPage implements OnInit {
         nick: users[0].nick,
         color: 'candypop',
         fecha: '01/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.\n 
+        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis. 
 
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.\n
+        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
         
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.\n 
+        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
         
         In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
       },
@@ -93,16 +93,16 @@ export class DiaryPage implements OnInit {
         nick: users[1].nick,
         color: 'sandy',
         fecha: '01/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.\n 
+        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.
 
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.\n
-        
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.\n 
-        
+        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
+
+        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
+
         In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
       }
     );
-    console.log(this.entries)
+    
     this.loaded = true;
   }
 }

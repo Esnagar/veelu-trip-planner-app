@@ -22,7 +22,6 @@ export class ActivityDetailPage implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       if (history.state.navigationId !== 'undefined' && history.state.navigationId !== 1) {
-        console.log(history.state);
         this.trip = history.state.trip;
         this.activity = history.state.activity;
         this.date = history.state.day;

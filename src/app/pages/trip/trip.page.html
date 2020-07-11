@@ -46,7 +46,7 @@
     <div>
       <label label="Features" class="mb-1"></label>
       <div class="flex justify-between">
-        <div class="flex flex-col items-center justify-center">
+        <div routerLink="files" [state]="trip" class="flex flex-col items-center justify-center">
           <div class="p-3 mb-2 rounded-xl shadow-button">
             <img src="../../../assets/icon/image-pink.svg" />
           </div>
@@ -58,13 +58,13 @@
           </div>
           <div class="text-sandy semibold">Checklist</div>
         </div>
-        <div class="flex flex-col items-center justify-center">
+        <div routerLink="expenses" [state]="trip" class="flex flex-col items-center justify-center">
           <div class="p-3 mb-2 rounded-xl shadow-button">
             <img src="../../../assets/icon/dollar-sign-green.svg" />
           </div>
           <div class="text-lime semibold">Expenses</div>
         </div>
-        <div class="flex flex-col items-center justify-center">
+        <div routerLink="diary" [state]="trip" class="flex flex-col items-center justify-center">
           <div class="p-3 mb-2 rounded-xl shadow-button">
             <img src="../../../assets/icon/book-open-blue.svg" />
           </div>

@@ -1,0 +1,19 @@
+<div class="container overflow-y-auto" *ngIf="loaded">
+  <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip"></arrow-back>
+  <page-title title="Diary"></page-title>
+  <create-button></create-button>
+
+  <div class="mt-8">
+    <div *ngFor="let entry of entries" class="shadow-button mb-8 text-dark rounded-xl p-6">
+      <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center">
+          <img [src]="entry.icono" class="w-10 h-10 mr-3 border-2 rounded-full" [ngClass]="'border-' + entry.color" />
+          <span class="semibold" [ngClass]="'text-' + entry.color">{{ entry.nick }}</span>
+        </div>
+        <span class="italic text-form text-sm">{{ entry.fecha }}</span>
+      </div>
+      <div>{{ entry.texto | slice:0:90 }}... <span class="semibold" [ngClass]="'text-' + entry.color">View more</span></div>
+    </div>
+  </div>
+
+</div>

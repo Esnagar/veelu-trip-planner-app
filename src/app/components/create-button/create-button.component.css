@@ -3,3 +3,8 @@
     bottom: 40px;
     right: 30px;
 }
+
+.rounded-150 {
+    border-radius: 150px;
+    margin-right: 4.1rem;
+}

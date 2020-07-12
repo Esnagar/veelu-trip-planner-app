@@ -88,9 +88,33 @@ ion-fab-button.create {
     --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
 }
 
+ion-fab.create {
+    --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
 ion-fab-button.main {
     --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
     --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
     --border-radius: 45px;
     --height: 55px;
 }
+
+ion-fab-button.fab-button-close-active {
+    --background: #ACACAC !important;
+    --box-shadow: 0px 4px 10px rgba(172, 172, 172, 0.7) !important;
+}
+
+ion-fab-button.fab-button-in-list {
+    --background: none !important;
+    --box-shadow: none !important;
+    --color: white !important;
+    font-size: 16px !important;
+}
+
+
+ion-fab-list.fab-list-active {
+    margin-bottom: 80px !important;
+    width: 20em !important;
+}
+

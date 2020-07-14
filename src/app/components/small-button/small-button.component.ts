@@ -37,6 +37,10 @@ export class SmallButtonComponent implements OnInit {
         this.button = ['Pending', 'void'];
         break;
 
+      case 'exit':
+        this.button = ['Exit', 'void2'];
+      break;
+
       default:
         break;
     }

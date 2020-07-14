@@ -15,3 +15,11 @@
 .pink:active {
     background-color: $rosaOscuro;
 }
+
+.void2 {
+    color: $candypop;
+    -webkit-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    -moz-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    width: 4.5rem !important;
+}

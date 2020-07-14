@@ -89,7 +89,12 @@ const routes: Routes = [
   {
     path: 'trip/:id/files',
     loadChildren: () => import('./pages/files/files.module').then( m => m.FilesPageModule)
+  },
+  {
+    path: 'trip/:id/expenses/:id2/expense-detail',
+    loadChildren: () => import('./pages/expense-detail/expense-detail.module').then( m => m.ExpenseDetailPageModule)
   }
+
 
 
 

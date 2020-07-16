@@ -1,4 +1,5 @@
-<button class="outline-none">
-    <img *ngIf="type != undefined && type != null && type == 'white'; else other" src="../../../assets/icon/arrow-left-white.svg" class="mb-4">
-    <ng-template #other><img src="../../../assets/icon/arrow-left.svg" class="mb-4"></ng-template>
+<button class="ion-activatable ripple-parent outline-none arrowBack mb-4 rounded-full">
+    <ion-ripple-effect></ion-ripple-effect>
+    <img *ngIf="type != undefined && type != null && type == 'white'; else other" src="../../../assets/icon/arrow-left-white.svg">
+    <ng-template #other><img src="../../../assets/icon/arrow-left.svg"></ng-template>
 </button>

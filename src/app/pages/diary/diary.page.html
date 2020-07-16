@@ -4,7 +4,8 @@
   <create-button></create-button>
 
   <div class="mt-8">
-    <div *ngFor="let entry of entries" [routerLink]="entry.id + '/entry-detail'" [state]="{'entry': entry, 'trip':trip}" class="shadow-button mb-8 text-dark rounded-xl p-6">
+    <div *ngFor="let entry of entries" [routerLink]="entry.id + '/entry-detail'" [state]="{'entry': entry, 'trip':trip}" class="ion-activatable ripple-parent outline-none shadow-button mb-8 text-dark rounded-xl p-6">
+      <ion-ripple-effect></ion-ripple-effect>
       <div class="flex items-center justify-between mb-5">
         <div class="flex items-center">
           <img [src]="entry.icono" class="w-10 h-10 mr-3 border-2 rounded-full" [ngClass]="'border-' + entry.color" />

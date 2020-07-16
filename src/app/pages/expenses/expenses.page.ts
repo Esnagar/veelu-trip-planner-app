@@ -50,6 +50,7 @@ export class ExpensesPage implements OnInit {
   }
 
   initInfo() {
+    this.total = 0;
     this.groupExpenses = [];
     this.privateExpenses = [];
     var users = [];

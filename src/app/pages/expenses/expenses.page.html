@@ -11,8 +11,8 @@
     </div>
     <hr>
 
-    <div *ngFor="let expense of currentExpenses, index as i" class="shadow-button mt-5 mb-8 text-dark rounded-xl p-6">
-      <div class="flex items-center justify-between mb-5">
+    <div *ngFor="let expense of currentExpenses, index as i" class="shadow-button mt-5 mb-8 text-dark rounded-xl">
+      <div class="flex items-center justify-between p-6 pb-0">
         <div (click)="toggleCheck(i)" class="flex items-center">
           <radio-button class="flex items-center mr-3" [checked]="expense.usuarios[nickLogged]"></radio-button>
           <span *ngIf="expense.usuarios[nickLogged]; else notpaid" class="italic text-form">Paid</span>
@@ -22,7 +22,10 @@
         </div>
         <span class="semibold text-xl">{{ expense.precio }} €</span>
       </div>
-      <div [routerLink]="expense.id + '/expense-detail'" [state]="{'expense': expense, 'trip':trip}">{{ expense.texto }}</div>
+      <div class="ion-activatable ripple-parent outline-none p-6" [routerLink]="expense.id + '/expense-detail'" [state]="{'expense': expense, 'trip':trip}">
+        <ion-ripple-effect></ion-ripple-effect>
+        {{ expense.texto }}
+      </div>
     </div>
   </div>
 

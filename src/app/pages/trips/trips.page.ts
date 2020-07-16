@@ -88,6 +88,12 @@ export class TripsPage implements OnInit {
   }
 
   async searchTripsFilter(e) {
+    var search = ((<HTMLInputElement>document.getElementById('busqueda')).value);
+
+    if (search != null && search != '') {
+      (<HTMLInputElement>document.getElementById('busqueda')).value = '';
+    }
+
     this.filter = e;
     this.activeFilter = e;
     var date = new Date(Date.now()).toISOString();

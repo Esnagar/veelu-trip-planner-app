@@ -8,8 +8,6 @@ import { ExpensesPageRoutingModule } from './expenses-routing.module';
 
 import { ExpensesPage } from './expenses.page';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { PrivacyButtonComponent } from 'src/app/components/privacy-button/privacy-button.component';
-import { RadioButtonComponent } from 'src/app/components/radio-button/radio-button.component';
 
 @NgModule({
   imports: [
@@ -19,6 +17,6 @@ import { RadioButtonComponent } from 'src/app/components/radio-button/radio-butt
     ExpensesPageRoutingModule,
     SharedModule
   ],
-  declarations: [ExpensesPage, PrivacyButtonComponent, RadioButtonComponent]
+  declarations: [ExpensesPage]
 })
 export class ExpensesPageModule {}

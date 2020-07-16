@@ -6,7 +6,10 @@
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchAutoHide": false,
+      "androidScaleType": "CENTER_CROP",
+      "splashFullScreen": false,
+      "splashImmersive": false
     }
   },
   "cordova": {
@@ -18,13 +21,7 @@
       "FadeSplashScreenDuration": "300",
       "SplashShowOnlyFirstTime": "false",
       "SplashScreen": "screen",
-      "SplashScreenDelay": "3000"
+      "SplashScreenDelay": "0"
     }
-  },
-  "server": {
-    "url": "http://192.168.0.107:8100",
-    "cleartext": true,
-    "originalUrl": "http://192.168.0.105:8101",
-    "originalCleartext": true
   }
 }

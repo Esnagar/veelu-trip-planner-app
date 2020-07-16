@@ -8,9 +8,6 @@ import { ChecklistPageRoutingModule } from './checklist-routing.module';
 
 import { ChecklistPage } from './checklist.page';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { PrivacyButtonComponent } from 'src/app/components/privacy-button/privacy-button.component';
-import { RadioButtonComponent } from 'src/app/components/radio-button/radio-button.component';
-import { ButtonsMoreComponent } from 'src/app/components/buttons-more/buttons-more.component';
 
 @NgModule({
   imports: [
@@ -20,6 +17,6 @@ import { ButtonsMoreComponent } from 'src/app/components/buttons-more/buttons-mo
     ChecklistPageRoutingModule,
     SharedModule
   ],
-  declarations: [ChecklistPage, PrivacyButtonComponent, RadioButtonComponent, ButtonsMoreComponent]
+  declarations: [ChecklistPage]
 })
 export class ChecklistPageModule {}

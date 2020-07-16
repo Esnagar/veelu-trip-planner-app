@@ -7,19 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { AddFriendPageRoutingModule } from './add-friend-routing.module';
 
 import { AddFriendPage } from './add-friend.page';
-import { ArrowBackComponent } from 'src/app/components/arrow-back/arrow-back.component';
-import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
-import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.component';
-import { UserRowComponent } from 'src/app/components/user-row/user-row.component';
-import { SmallButtonComponent } from 'src/app/components/small-button/small-button.component';
+
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddFriendPageRoutingModule
+    AddFriendPageRoutingModule,
+    SharedModule
   ],
-  declarations: [AddFriendPage, ArrowBackComponent, PageTitleComponent, SearchBarComponent, UserRowComponent, SmallButtonComponent]
+  declarations: [AddFriendPage]
 })
 export class AddFriendPageModule {}

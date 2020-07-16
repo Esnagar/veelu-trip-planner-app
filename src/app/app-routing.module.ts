@@ -1,22 +1,35 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SimpleLoadStrategy } from './classes/simple-load-strategy';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule),
+    data: {
+      preload: true
+    }
   },
   {
     path: 'intro',
-    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule),
+    data: {
+      preload: true
+    }
   },
   {
     path: 'intro/sign-up',
-    loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+    loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule),
+    data: {
+      preload: true
+    }
   },
   {
     path: 'intro/log-in',
-    loadChildren: () => import('./pages/log-in/log-in.module').then( m => m.LogInPageModule)
+    loadChildren: () => import('./pages/log-in/log-in.module').then( m => m.LogInPageModule),
+    data: {
+      preload: true
+    }
   },
   {
     path: 'tabs',
@@ -94,20 +107,13 @@ const routes: Routes = [
     path: 'trip/:id/expenses/:id2/expense-detail',
     loadChildren: () => import('./pages/expense-detail/expense-detail.module').then( m => m.ExpenseDetailPageModule)
   }
-
-
-
-
-
-
-
-
-
-
 ];
+
+
 @NgModule({
+  providers: [SimpleLoadStrategy],
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: SimpleLoadStrategy })
   ],
   exports: [RouterModule]
 })

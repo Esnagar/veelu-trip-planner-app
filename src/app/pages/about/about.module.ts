@@ -7,16 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AboutPageRoutingModule } from './about-routing.module';
 
 import { AboutPage } from './about.page';
-import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
-import { ArrowBackComponent } from 'src/app/components/arrow-back/arrow-back.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AboutPageRoutingModule
+    AboutPageRoutingModule,
+    SharedModule
   ],
-  declarations: [AboutPage, ArrowBackComponent, PageTitleComponent]
+  declarations: [AboutPage]
 })
 export class AboutPageModule {}

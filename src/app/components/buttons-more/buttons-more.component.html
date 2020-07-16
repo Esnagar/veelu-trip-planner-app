@@ -1,4 +1,4 @@
-<button class="outline-none" (click)="showOptions()">
+<button class="outline-none" (click)="showOptions($event)">
   <img *ngIf="type != undefined && type != null && type == 'white'; else other" src="../../../assets/icon/more-vertical.svg" class="mb-4">
   <ng-template #other><img src="../../../assets/icon/more-vertical-grey.svg" class="mb-4"></ng-template>
 </button>

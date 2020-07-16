@@ -7,16 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { NotifsPageRoutingModule } from './notifs-routing.module';
 
 import { NotifsPage } from './notifs.page';
-import { ArrowBackComponent } from 'src/app/components/arrow-back/arrow-back.component';
-import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
+
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NotifsPageRoutingModule
+    NotifsPageRoutingModule,
+    SharedModule
   ],
-  declarations: [NotifsPage, ArrowBackComponent, PageTitleComponent]
+  declarations: [NotifsPage]
 })
 export class NotifsPageModule {}

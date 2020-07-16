@@ -8,9 +8,6 @@ import { ExpenseDetailPageRoutingModule } from './expense-detail-routing.module'
 
 import { ExpenseDetailPage } from './expense-detail.page';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { UserRowComponent } from 'src/app/components/user-row/user-row.component';
-import { RadioButtonComponent } from 'src/app/components/radio-button/radio-button.component';
-import { SmallButtonComponent } from 'src/app/components/small-button/small-button.component';
 
 @NgModule({
   imports: [
@@ -20,6 +17,6 @@ import { SmallButtonComponent } from 'src/app/components/small-button/small-butt
     ExpenseDetailPageRoutingModule,
     SharedModule
   ],
-  declarations: [ExpenseDetailPage, UserRowComponent, RadioButtonComponent, SmallButtonComponent]
+  declarations: [ExpenseDetailPage]
 })
 export class ExpenseDetailPageModule {}

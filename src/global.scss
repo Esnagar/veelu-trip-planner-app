@@ -51,13 +51,12 @@
 
 ion-toast.toast-warning {
     color: white;
-    --background: #ffae00;
-    --border-color: #ffa600;
-    --border-width: 3px;
-    --border-style: solid;
+    font-size: 16px;
+    --background: rgba(172, 172, 172, 1);
+    --border-radius: 15px;
     --box-shadow: none;
     --height: 4rem;
-    bottom: 500px;
+    bottom: 50px;
     position: fixed;
 }
 

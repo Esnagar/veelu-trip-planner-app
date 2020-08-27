@@ -23,6 +23,6 @@
     <label label='Paid by:'></label>
     <div *ngFor="let participante of participantes" class="flex items-center justify-between">
       <user-row [icon]="participante.icono" [nickname]="participante.nick"></user-row>
-      <radio-button class="flex items-center" [checked]="true"></radio-button>
+      <radio-button class="flex items-center" [checked]="false"></radio-button>
     </div>
 </div>

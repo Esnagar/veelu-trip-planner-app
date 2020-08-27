@@ -57,16 +57,16 @@ export class ChecklistPage implements OnInit {
     this.groupItems.push({ texto: 'imprimir billetes de avión', checked: true},
                         { texto: 'investigar sitios a visitar', checked: true},
                         { texto: 'mirar hoteles', checked: false},
-                        { texto: 'comprobar caducidad pasaportes', checked: false},
+                        { texto: 'comprobar caducidad pasaportes', checked: true},
                         { texto: 'DNI', checked: false},
-                        { texto: 'comprar entradas museo', checked: true},
+                        { texto: 'comprar entradas museo', checked: false},
                         { texto: 'dinero', checked: false}
     );
 
     this.privateItems.push({ texto: 'llevar ropa abrigada', checked: false},
-                        { texto: 'mirar caducidad dni', checked: true},
+                        { texto: 'gorro y guantes', checked: false},
                         { texto: 'coger auriculares para el bus', checked: false},
-                        { texto: 'cargador de móvil', checked: true}
+                        { texto: 'cargador del móvil', checked: false}
                     );
 
     this.currentItems = this.groupItems;

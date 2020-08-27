@@ -12,6 +12,7 @@ import {
   PushNotificationActionPerformed, 
   Capacitor} from '@capacitor/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 const { PushNotifications } = Plugins;
 
@@ -37,6 +38,7 @@ export class TripsPage implements OnInit {
   activeFilter: string;
   trips: Trip[];
   devicesCollection: AngularFirestoreCollection<Device>;
+  loaded: boolean;
 
 
   slideOpts = {
@@ -44,12 +46,14 @@ export class TripsPage implements OnInit {
     speed: 400
   };
  
-  constructor(private tripsService: TripsService, public afAuth: AngularFireAuth, private router: Router, private storage: Storage, private afs: AngularFirestore) {
+  constructor(private tripsService: TripsService, private usersService: UsersService, public afAuth: AngularFireAuth, private router: Router, private storage: Storage, private afs: AngularFirestore) {
     this.prepareNotifications();
+    this.loaded = false;
   }
 
   async ngOnInit() {
     this.activeFilter = 'All';
+    this.loaded = false;
     this.date = new Date(Date.now()).toISOString();
     this.noTripsMessage = "You don't have any trips yet. Try creating one by clicking the floating button!";
 
@@ -68,7 +72,15 @@ export class TripsPage implements OnInit {
 
     this.tripsService.getTrips(this.idUser).subscribe(val => {
       this.trips = val;
-    });  
+      setTimeout(() => {
+        this.loaded = true;
+      }, 500);
+    });
+    
+    await this.usersService.getUser(this.idUser).subscribe(async usuario => {
+      await this.storage.set('userPhoto', usuario[0].icono);
+    });
+
   }
 
   searchTrips(e) {
@@ -127,11 +139,11 @@ export class TripsPage implements OnInit {
   }
 
   prepareNotifications() {
-
     // Request permission to use push notifications
     // iOS will prompt user and return if they granted permission or not
     // Android will just grant without prompting
     if (Capacitor.isPluginAvailable('PushNotifications')) {
+
       PushNotifications.requestPermission().then(result => {
         if (result.granted) {
           // Register with Apple / Google to receive push via APNS/FCM

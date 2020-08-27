@@ -63,9 +63,10 @@ export class ExpensesPage implements OnInit {
       {
         id: 1, 
         usuarios: {
-          [users[0]['nick']]: true,
-          [users[1]['nick']]: true,
-          [users[2]['nick']]: true,
+          [users[0]['nick']]: false,
+          [users[1]['nick']]: false,
+          [users[2]['nick']]: false,
+          [users[3]['nick']]: false
         },
         texto: "Entrada al museo de la Haya",
         precio: 20
@@ -73,9 +74,10 @@ export class ExpensesPage implements OnInit {
       {
         id: 2, 
         usuarios: {
-          [users[0]['nick']]: true,
-          [users[1]['nick']]: true,
-          [users[2]['nick']]: true,
+          [users[0]['nick']]: false,
+          [users[1]['nick']]: false,
+          [users[2]['nick']]: false,
+          [users[3]['nick']]: false
         },
         texto: "Transporte desde el hotel hasta el centro de Ámserdam.",
         precio: 5
@@ -83,9 +85,10 @@ export class ExpensesPage implements OnInit {
       {
         id: 3, 
         usuarios: {
-          [users[0]['nick']]: true,
-          [users[1]['nick']]: true,
-          [users[2]['nick']]: true,
+          [users[0]['nick']]: false,
+          [users[1]['nick']]: false,
+          [users[2]['nick']]: false,
+          [users[3]['nick']]: false
         },
         texto: "Comida en el chino",
         precio: 10
@@ -93,9 +96,10 @@ export class ExpensesPage implements OnInit {
       {
         id: 4, 
         usuarios: {
-          [users[0]['nick']]: true,
-          [users[1]['nick']]: true,
-          [users[2]['nick']]: true,
+          [users[0]['nick']]: false,
+          [users[1]['nick']]: false,
+          [users[2]['nick']]: false,
+          [users[3]['nick']]: false
         },
         texto: "Visita al museo.",
         precio: 15
@@ -109,6 +113,25 @@ export class ExpensesPage implements OnInit {
     });
     
     this.loaded = true;
+
+    this.privateExpenses.push(
+      {
+        id: 1, 
+        usuarios: {
+          [users[0]['nick']]: false
+        },
+        texto: "Souvenirs",
+        precio: 5.50
+      },
+      {
+        id: 2, 
+        usuarios: {
+          [users[0]['nick']]: false
+        },
+        texto: "Patatas fritas",
+        precio: 4
+      }
+    )
   }
 
   changeExpenses(type) {

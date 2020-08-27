@@ -136,6 +136,12 @@
     box-shadow: 0px 3px 6px rgba(197, 197, 197, 0.4);
 }
 
+.sombra-blur {
+    -webkit-filter: blur(18px);
+    filter: blur(18px);
+    opacity: 55%;
+}
+
 /****************** PLACEHOLDERS *********************/
 
 ::-webkit-input-placeholder { /* Edge */

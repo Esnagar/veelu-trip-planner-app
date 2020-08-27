@@ -13,8 +13,8 @@ exports.hey = functions.region('europe-west1').firestore
 
         const payload = {
             notification: {
-                title: `${followerId} wants to follow you`,
-                body: 'You have a new friend request!'
+                title: 'You have a new friend request!',
+                body: `${followerId} wants to follow you`
             }
         }
 

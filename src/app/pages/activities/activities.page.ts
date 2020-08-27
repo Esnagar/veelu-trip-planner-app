@@ -74,12 +74,12 @@ export class ActivitiesPage implements OnInit {
       {
         id: 1, 
         titulo: 'Desayunar en la cafetería del hotel',
-        descripcion: 'También podemos comprar la comida en un supermercado',
+        descripcion: 'También podemos comprar algo en el supermercado para desayunar',
         hora: '10:00',
         tipo: 'eating',
         ubicacion: 'Ámsterdam',
         precio: '',
-        foto: 'https://media.timeout.com/images/105500044/image.jpg'
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fcomida.jpg?alt=media&token=c4fdfe6f-9df7-41af-9004-6b1a42ef1199'
       },
       {
         id: 2, 
@@ -89,17 +89,17 @@ export class ActivitiesPage implements OnInit {
         tipo: 'transport',
         ubicacion: 'Ámsterdam',
         precio: '15',
-        foto: 'https://www.victorstravels.com/wp-content/uploads/2017/12/cheap-train-tickets-netherlands.jpg'
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Ftren.png?alt=media&token=35703f74-ab44-4e5e-abd5-0c55074d8dc2'
       },
       {
         id: 3,
-        titulo: 'Visitar los molinos de Zaanse Schan',
+        titulo: 'Visitar los molinos de Zaanse Schans',
         descripcion: 'Llevar comida para almorzar',
         hora: '11:30',
         tipo: 'explore',
-        ubicacion: 'Zaanse Schan',
+        ubicacion: 'Zaanse Schans',
         precio: '',
-        foto: 'https://cdn.getyourguide.com/img/tour_img-1839472-146.jpg'
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fmolinos.jpg?alt=media&token=24ca9ddc-8dc7-4447-a05d-7869f070e5db'
       },
       {
         id: 4, 
@@ -107,9 +107,70 @@ export class ActivitiesPage implements OnInit {
         descripcion: '',
         hora: '14:00',
         tipo: 'eating',
-        ubicacion: 'Zaanse Schan',
+        ubicacion: 'Zaanse Schans',
         precio: '15',
-        foto: 'https://static.dezeen.com/uploads/2016/07/bar-botanique-studio-modijefsky-amsterdam-dutch-netherlands-green-forest-rainforest-tropical-foliage-_dezeen_1568_11.jpg'
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fbar.jpg?alt=media&token=54ddadf5-1d0d-4154-a08d-93bb357073ff'
+      },
+      {
+        id: 5, 
+        titulo: 'Ir a la estación y coger el tren',
+        descripcion: 'Volver a Ámsterdam',
+        hora: '16:00',
+        tipo: 'transport',
+        ubicacion: 'Zaanse Schans',
+        precio: '15',
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Ftren.png?alt=media&token=35703f74-ab44-4e5e-abd5-0c55074d8dc2'
+      }
+    ],[
+      {
+        id: 6, 
+        titulo: 'Desayunar en la cafetería del hotel',
+        descripcion: 'También podemos comprar algo en el supermercado para desayunar',
+        hora: '9:30',
+        tipo: 'eating',
+        ubicacion: 'Ámsterdam',
+        precio: '',
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fcomida.jpg?alt=media&token=c4fdfe6f-9df7-41af-9004-6b1a42ef1199'
+      },
+      {
+        id: 7, 
+        titulo: 'Paseo por la ciudad',
+        descripcion: 'Observar los edificios y las calles de Ámsterdam',
+        hora: '11:00',
+        tipo: 'explore',
+        ubicacion: 'Ámsterdam',
+        precio: '',
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fpaseo%20amsterdam.jpg?alt=media&token=df61c36b-337d-4e61-9ece-56713fe3babf'
+      },
+      {
+        id: 8,
+        titulo: 'Visitar el barrio rojo',
+        descripcion: 'Llevar comida para almorzar',
+        hora: '12:15',
+        tipo: 'explore',
+        ubicacion: 'Ámsterdam',
+        precio: '',
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fbarrio%20rojo.jpg?alt=media&token=b77f8906-90e4-4546-9fd0-f86213d23e55'
+      },
+      {
+        id: 9, 
+        titulo: 'Viaje en barco por los canales',
+        descripcion: '',
+        hora: '13:00',
+        tipo: 'explore',
+        ubicacion: 'Ámsterdam',
+        precio: '20',
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fbarco.jpg?alt=media&token=3d2645d3-446d-42ee-bcb9-6124a9642eff'
+      },
+      {
+        id: 10, 
+        titulo: 'Comer en un lugar de la zona',
+        descripcion: '',
+        hora: '14:00',
+        tipo: 'eating',
+        ubicacion: 'Zaanse Schans',
+        precio: '15',
+        foto: 'https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/8GOcnD8dzwMB2IhIqCRx%2Fbar.jpg?alt=media&token=54ddadf5-1d0d-4154-a08d-93bb357073ff'
       }
     ]);
 

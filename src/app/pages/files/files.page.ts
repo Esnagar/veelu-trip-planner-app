@@ -47,7 +47,7 @@ export class FilesPage implements OnInit {
       {
         id: 1, 
         carpeta: true,
-        texto: "Fotos barrio rojo",
+        texto: "Fotos Maastricht",
         miniatura: "../../../assets/folder.svg",
         archivos: [
           {
@@ -69,8 +69,8 @@ export class FilesPage implements OnInit {
       {
         id: 3, 
         carpeta: false,
-        texto: "i_am_amsterdam",
-        miniatura: "https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/Gco3WVprtc33rHKpENpa%2Fi-amsterdam-card.webp?alt=media&token=15821cd3-a0d5-44b9-acb0-5a4273f5f11a"
+        texto: "Zaanse Schans",
+        miniatura: "https://firebasestorage.googleapis.com/v0/b/certain-catcher-256911.appspot.com/o/Gco3WVprtc33rHKpENpa%2Fzaanse%20schans.jpg?alt=media&token=56f26f86-4cbd-4196-9102-d0cc19087fd9"
       },
       {
         id: 4, 

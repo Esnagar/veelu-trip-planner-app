@@ -22,6 +22,7 @@ export class DiaryPage implements OnInit {
     this.route.paramMap.subscribe(params => {
       if (history.state.navigationId !== 'undefined' && history.state.navigationId !== 1) {
         this.trip = history.state;
+        console.log(history.state);
         this.initInfo();
 
       } else {
@@ -47,58 +48,38 @@ export class DiaryPage implements OnInit {
     this.entries.push(
       {
         id: 1, 
-        icono: users[0].icono,
-        nick: users[0].nick,
+        icono: users[1].icono,
+        nick: users[1].nick,
         color: 'aqua',
-        fecha: '03/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.
+        fecha: '27/01/2020',
+        texto: `Ayer fuimos a La Haya, en concreto a un museo llamado Madurodam. Más que un museo es una zona al aire libre que simula Holanda como si fuera una mini ciudad.
 
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
+        Resulta que lo llamaban así porque hubo un soldado importante en la guerra de noseque en las tropas de Holanda, y sus padres (ricos) le hicieron esto para homenajearlo.
         
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
+        Están muy logradas las maquetas, pero lo mejor de la exposición es que también tiene pequeños juegos, como una mesa de dj, una báscula para saber tu peso en quesos, etc.
         
-        In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
+        En el interior hay una sección de fútbol en la que también te hacen un muñeco turbio en 3D. Y a Moi casi se le pierde un guante en la zona del barco pirata.`
       },
       {
         id: 2, 
-        icono: users[1].icono,
-        nick: users[1].nick,
+        icono: users[2].icono,
+        nick: users[2].nick,
         color: 'lime',
-        fecha: '02/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis. 
-
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
-        
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
-        
-        In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
+        fecha: '25/01/2020',
+        texto: `Esta mañana hemos ido en tren hasta Zaanse Schans, un pequeño pueblo con molinos donde viven`
       },
       {
         id: 3,
-        icono: users[0].icono,
-        nick: users[0].nick,
-        color: 'candypop',
-        fecha: '01/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis. 
-
-        Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
-        
-        In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
-        
-        In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
-      },
-      {
-        id: 4, 
         icono: users[1].icono,
         nick: users[1].nick,
-        color: 'sandy',
-        fecha: '01/07/2020',
-        texto: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor sit amet sem eu efficitur. Sed vel cursus tellus. Maecenas tempor tortor euismod ligula semper, id tempus tellus facilisis.
+        color: 'candypop',
+        fecha: '24/01/2020',
+        texto: `Hoy ha sido el primer día de viaje. Después de dejar las cosas en el apartamento, hemos bajado a dar un paseo por la zona del. 
 
         Nullam pellentesque et lectus quis pulvinar. Fusce ac pulvinar ante. Donec pellentesque enim non pulvinar facilisis. Pellentesque dictum finibus purus eget commodo.
-
+        
         In in est ac quam feugiat venenatis. Pellentesque placerat tristique mi et volutpat. Morbi eget tristique enim. Nam lobortis condimentum dolor, ac laoreet felis rutrum auctor.
-
+        
         In vulputate, quam vitae consequat malesuada, ante elit pretium ligula, non ullamcorper libero turpis egestas diam. Praesent egestas laoreet orci non fermentum.`
       }
     );

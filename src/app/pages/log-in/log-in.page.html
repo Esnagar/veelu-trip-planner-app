@@ -5,10 +5,10 @@
   <form [formGroup]="form" class="flex flex-col justify-between" style="height: 75vh;">
     <div>
       <label label='Email'></label>
-      <input type="email" formControlName="email" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+      <input id="email" type="email" formControlName="email" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
 
       <label label='Password'></label>
-      <input type="password" formControlName="password" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+      <input id="password" type="password" formControlName="password" class="outline-none focus-bg-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
     </div>
     <main-button class="w-full" text="Log in" type="submit" (click)="login(form.value)"></main-button>
 </form>

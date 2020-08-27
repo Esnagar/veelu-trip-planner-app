@@ -47,8 +47,18 @@ export class UsersService {
   }
 
   getUser(id: string) {  
-    this.userDoc = this.afs.doc<User>('users/' + id);
-    return this.userDoc.valueChanges();  
+    return this.users = this.afs.collection<User>('users', ref => ref.where('id', '==', id))
+    .snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+    //this.userDoc = this.afs.doc<User>('users/' + id);
+    //return this.userDoc.valueChanges();  
   }
 
   createUser(user: User): Promise<void> {

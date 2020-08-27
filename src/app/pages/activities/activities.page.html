@@ -24,7 +24,14 @@
         <div class="flex pl-8 py-3 w-full items-center ml-4" [ngClass]="{ borderDotted : !last }" >
           <div class="w-2/5 flex justify-center items-center">
             <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')'}" class="w-full fotoActividad rounded-lg h-20 bg-cover z-10"></div>
-            <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')'}" class="w-1/6 fotoFondo sombra-blur rounded-lg h-20 bg-cover absolute"></div>
+            <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')',
+                              '-webkit-filter': 'blur(15px)', 
+                              '-moz-filter': 'blur(15px)',
+                              '-o-filter': 'blur(15px)',
+                              '-ms-filter': 'blur(15px)',
+                              'filter': 'blur(15px)',
+                              'opacity': '60%'
+                            }" class="w-1/6 fotoFondorounded-lg h-20 bg-cover absolute"></div>
           </div>
           <div class="w-3/5 ml-5">
             <div class="font-semibold mb-2">{{ activity.titulo }}</div>

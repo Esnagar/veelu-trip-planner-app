@@ -8,8 +8,14 @@
     <div class="w-full flex justify-center">
       <div [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"
           class="fotoPerfil rounded-full w-32 h-32 bg-cover z-10"></div>
-      <div [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"
-          class="fotoFondo sombra-blur rounded-full w-24 h-32 bg-cover absolute"></div>
+      <div [ngStyle]="{'background-image': 'url(' + profilePic + ')',
+                        '-webkit-filter': 'blur(20px)', 
+                        '-moz-filter': 'blur(20px)',
+                        '-o-filter': 'blur(20px)',
+                        '-ms-filter': 'blur(20px)',
+                        'filter': 'blur(20px)',
+                        'opacity': '65%'}"
+          class="fotoFondo rounded-full w-24 h-32 bg-cover absolute"></div>
     </div>
     <div class="w-full flex justify-center bold text-dark mt-5">@{{ nickname }}</div>
 

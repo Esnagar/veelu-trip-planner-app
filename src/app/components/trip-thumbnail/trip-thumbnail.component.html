@@ -1,6 +1,13 @@
 <div class="w-full flex justify-center" style="height: 80vh">
-  <div [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"
-    class="thumbnailViaje fotoFondo sombra-blur absolute w-3/4">
+  <div [ngStyle]="{'background-image': 'url(' + info.foto + ')', 
+                  '-webkit-filter': 'blur(15px)', 
+                  '-moz-filter': 'blur(15px)',
+                  '-o-filter': 'blur(15px)',
+                  '-ms-filter': 'blur(15px)',
+                  'filter': 'blur(15px)',
+                  'opacity': '55%'}"
+
+    class="thumbnailViaje fotoFondo absolute w-3/4">
   </div>
   <div id="{{ info.id }}" 
       [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"

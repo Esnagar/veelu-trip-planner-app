@@ -8,7 +8,13 @@
   <div class="mt-8">
     <div class="h-56 mb-8 flex justify-center items-center">
       <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')'}" class="h-56 w-full fotoActividad rounded-xl h-20 bg-cover z-10"></div>
-      <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')'}" class="h-56 w-2/3 fotoFondo sombra-blur rounded-xl h-20 bg-cover absolute"></div>
+      <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')',
+                        '-webkit-filter': 'blur(15px)', 
+                        '-moz-filter': 'blur(15px)',
+                        '-o-filter': 'blur(15px)',
+                        '-ms-filter': 'blur(15px)',
+                        'filter': 'blur(15px)',
+                        'opacity': '60%'}" class="h-56 w-2/3 fotoFondo rounded-xl h-20 bg-cover absolute"></div>
     </div>
     <label label='Description'></label>
     <div class="text-dark mb-5">{{ activity.descripcion }}</div>

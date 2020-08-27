@@ -27,12 +27,22 @@
 
 @import "./theme/colors.scss";
 
+
+.sombra-blur {
+    -webkit-filter: blur(18px);
+    -moz-filter: blur(18px);
+    -o-filter: blur(18px);
+    -ms-filter: blur(18px);
+    filter: blur(18px);
+    opacity: 55%;
+}
+
 .swiper-pagination {
     position: fixed !important;
 }
 
 .swiper-pagination-bullets {
-    bottom: 20px !important;
+    bottom: 10px !important;
 }
 
 .swiper-pagination-bullet {

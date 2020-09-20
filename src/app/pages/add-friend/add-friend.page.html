@@ -1,0 +1,21 @@
+<div class="container">
+  <arrow-back [routerLink]="['/friends']"></arrow-back>
+  <page-title title="Add friends"></page-title>
+  <search-bar placeholder="Search by nickname..." (change)="searchUsers($event)"></search-bar>
+
+  <div *ngIf="users !== undefined && searched" class="mt-8">
+    <div *ngIf="users !== undefined && users.length > 0; else notFound" class="mt-8">
+      <div *ngFor="let user of users; index as i" class="flex justify-between items-center">
+        <user-row [icon]="user[1]" [nickname]="user[0]"></user-row>
+        <small-button [textButton]="user[2]" (click)="toggleFollow(user, i)"></small-button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+      
+    </div>
+  </ng-template>
+
+</div>

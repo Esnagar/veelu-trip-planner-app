@@ -1,0 +1,32 @@
+<div class="container" *ngIf="loaded">
+  <div class="flex items-center justify-between">
+    <arrow-back [routerLink]="['/trip/' + trip.id + '/activities']" [state]="trip"></arrow-back>
+    <buttons-more type="white" [sectionName]="'activity'" [data]="activity"></buttons-more>
+  </div>
+  <page-title [title]="activity.titulo"></page-title>
+
+  <div class="mt-8">
+    <div class="h-56 mb-8 flex justify-center items-center">
+      <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')'}" class="h-56 w-full fotoActividad rounded-xl h-20 bg-cover z-10"></div>
+      <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')',
+                        '-webkit-filter': 'blur(15px)', 
+                        '-moz-filter': 'blur(15px)',
+                        '-o-filter': 'blur(15px)',
+                        '-ms-filter': 'blur(15px)',
+                        'filter': 'blur(15px)',
+                        'opacity': '60%'}" class="h-56 w-2/3 fotoFondo rounded-xl h-20 bg-cover absolute"></div>
+    </div>
+    <label label='Description'></label>
+    <div class="text-dark mb-5">{{ activity.descripcion }}</div>
+    <label label='Date'></label>
+    <div class="text-dark mb-5">{{ date | date:'MMM d' }}, {{ activity.hora }}</div>
+    <label label='Location'></label>
+    <div class="text-dark mb-5">{{ activity.ubicacion }}</div>
+    <label label='Type of activity'></label>
+    <div class="flex items-center">
+      <img [src]="'../../../assets/icon/' + activity.tipo + '.svg'" class="w-8 h-8 rounded-full bg-candypop p-1 mr-3">
+      <div class="text-dark">{{ activity.tipo | titlecase }}</div>
+    </div>
+  </div>
+
+</div>

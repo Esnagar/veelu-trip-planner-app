@@ -1,0 +1,7 @@
+{
+  "name": "veelu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

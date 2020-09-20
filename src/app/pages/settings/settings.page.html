@@ -1,0 +1,43 @@
+<div class="container">
+  <div>
+    <arrow-back [routerLink]="['/tabs/user']"></arrow-back>
+    <page-title title='Settings'></page-title>
+
+    <hr class="mt-16" />
+    <div class="flex justify-between items-center text-dark my-3">
+      <div>
+        <div class="semibold mb-1">Language <span class="italic semibold">(available soon)</span></div>
+        <div class="text-sm">English</div>
+      </div>
+      <img src="../../../assets/icon/edit-grey.svg" />
+    </div>
+    <hr />
+    <div class="flex justify-between items-center text-dark my-3">
+      <div>
+        <div class="semibold mb-1">Currency <span class="italic semibold">(available soon)</span></div>
+        <div class="text-sm">Euro (€)</div>
+      </div>
+      <img src="../../../assets/icon/edit-grey.svg" />
+    </div>
+    <hr />
+    <div class="flex justify-between items-center text-dark my-3">
+      <div>
+        <div class="semibold mb-1">Theme <span class="italic semibold">(available soon)</span></div>
+        <div class="text-sm">Dark mode</div>
+      </div>
+      <ion-toggle class="px-0"></ion-toggle>
+    </div>
+    <hr />
+  </div>
+
+  <div class="mt-24">
+    <div class="text-form bold text-lg mb-3">Others</div>
+    <hr />
+    <div routerLink="/about" class="flex justify-between items-center">
+      <div class="semibold text-dark my-3">About</div>
+      <img src="../../../assets/icon/arrow-right.svg" />
+    </div>
+    <hr />
+  </div>
+
+</div>

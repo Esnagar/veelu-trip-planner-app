@@ -1,0 +1,7 @@
+<textarea *ngIf="size == 'large'; else elseBlock"
+        class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-3" rows="2"></textarea>
+
+<ng-template #elseBlock>
+    <input type="{{ type }}"
+            class="outline-none border-candy bg-form text-dark w-full px-3 py-2 rounded-xl regular mb-5" />
+</ng-template>

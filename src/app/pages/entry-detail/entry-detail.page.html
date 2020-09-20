@@ -1,0 +1,18 @@
+<div class="container overflow-y-auto" *ngIf="loaded">
+  <div class="flex items-center justify-between">
+    <arrow-back [routerLink]="['/trip/' + trip.id + '/diary']" [state]="trip"></arrow-back>
+    <buttons-more type="white" [sectionName]="'entry'" [data]="entry"></buttons-more>
+  </div>
+  <page-title title="Post detail"></page-title>
+
+  <div class="mt-8 text-dark">
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center">
+        <img [src]="entry.icono" class="w-10 h-10 mr-3 border-2 rounded-full" [ngClass]="'border-' + entry.color" />
+        <span class="semibold" [ngClass]="'text-' + entry.color">{{ entry.nick }}</span>
+      </div>
+      <span class="italic text-form text-sm">{{ entry.fecha }}</span>
+    </div>
+    <div class="angular-with-newlines">{{ entry.texto }}</div>
+  </div>
+</div>

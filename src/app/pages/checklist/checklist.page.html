@@ -1,0 +1,20 @@
+<div class="container" *ngIf="loaded">
+  <div class="flex items-center justify-between">
+    <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip"></arrow-back>
+    <buttons-more [sectionName]="'items'" [data]="[currentItems]"></buttons-more>
+  </div>
+  <page-title title='Checklist'></page-title>
+
+  <create-button></create-button>
+  <privacy-button (filterChanged)="changeItems($event)"></privacy-button>
+
+  <div class="mt-5">
+    <div *ngFor="let item of currentItems, index as i" class="text-dark w-full my-12">
+      <div class="flex items-center" (click)="toggleCheck(i)">
+        <radio-button class="flex items-center" [checked]="item.checked"></radio-button>
+        <span [ngClass]="{'text-form': item.checked }" class="ml-5">{{ item.texto }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

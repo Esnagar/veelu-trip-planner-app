@@ -1,0 +1,45 @@
+<div class="container flex flex-col justify-between">
+  <div>
+    <arrow-back [routerLink]="['/tabs/user']"></arrow-back>
+    <page-title title='Edit profile'></page-title>
+
+    <div class="w-full flex justify-center mt-10">
+      <div [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"
+          style="background-size: cover;"
+          class="rounded-full w-20 h-20 bg-cover border-2"></div>
+    </div>
+    <div class="w-full flex justify-center semibold text-dark mt-3 mb-10">Edit picture</div>
+
+    <hr />
+    <div class="flex justify-between items-center text-dark my-3">
+      <div>
+        <div class="semibold mb-1">Nickname</div>
+        <div class="text-sm">@{{ nickname }}</div>
+      </div>
+      <img src="../../../assets/icon/edit-grey.svg" />
+    </div>
+    <hr />
+    <div class="flex justify-between items-center text-dark my-3">
+      <div>
+        <div class="semibold mb-1">Email</div>
+        <div class="text-sm">{{ email }}</div>
+      </div>
+      <img src="../../../assets/icon/edit-grey.svg" />
+    </div>
+    <hr />
+    <div class="flex justify-between items-center text-dark my-3">
+      <div class="semibold">Password</div>
+      <img src="../../../assets/icon/edit-grey.svg" />
+    </div>
+    <hr />
+  </div>
+
+  <div>
+    <hr />
+    <div class="semibold text-red-600 my-3">Logout</div>
+    <hr />
+    <div class="semibold text-dark my-3">Deactivate account</div>
+    <hr />
+  </div>
+
+</div>

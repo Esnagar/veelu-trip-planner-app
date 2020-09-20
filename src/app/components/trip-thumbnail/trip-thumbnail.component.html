@@ -1,0 +1,18 @@
+<div class="w-full flex justify-center" style="height: 80vh">
+  <div [ngStyle]="{'background-image': 'url(' + info.foto + ')', 
+                  '-webkit-filter': 'blur(15px)', 
+                  '-moz-filter': 'blur(15px)',
+                  '-o-filter': 'blur(15px)',
+                  '-ms-filter': 'blur(15px)',
+                  'filter': 'blur(15px)',
+                  'opacity': '55%'}"
+
+    class="thumbnailViaje fotoFondo absolute w-3/4">
+  </div>
+  <div id="{{ info.id }}" 
+      [ngStyle]="{'background-image': 'url(' + info.foto + ')'}"
+      class="thumbnailViaje flex flex-col justify-end p-8 w-full z-10">
+    <div class="text-white">{{ info.fecha_ini | date:'MMM d' }} - {{ info.fecha_fin | date:'MMM d' }}</div>
+    <div class="text-white bold text-2xl tracking-wide">{{ info.titulo }}</div>
+  </div>
+</div>

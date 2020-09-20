@@ -1,0 +1,194 @@
+@import "./colors.scss";
+
+.bg-candypop {
+    background-color: $candypop;
+}
+
+.focus-bg-candy:focus {
+    background-color: white;
+    -webkit-box-shadow:inset 0px 0px 0px 1.5px #D3D3D3;
+    -moz-box-shadow:inset 0px 0px 0px 1.5px #D3D3D3;
+    box-shadow:inset 0px 0px 0px 1.5px  #D3D3D3;
+}
+
+.bg-sandy {
+    background-color: $sandy;
+}
+
+.bg-lime {
+    background-color: $lime;
+}
+
+.bg-aqua {
+    background-color: $aquaPearl;
+}
+
+.bg-form {
+    background-color: $grisFormulario;
+}
+
+.bg-form-text {
+    background-color: $textoFormulario;
+}
+
+.bg-twice {
+    background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+}
+
+.shadow-twicetagram {
+    box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    padding: 2.5rem;
+    background-color: white;
+}
+
+.containerNoPadding {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+.text-dark {
+    color: $textoNegro;
+}
+
+.text-form {
+    color: $textoFormulario;
+}
+
+.text-twice {
+    background: -webkit-linear-gradient(#FFA882 0%, #FD7F8E 100%);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.text-candypop {
+    color: $candypop;
+}
+
+.text-sandy {
+    color: $sandy;
+}
+
+.text-lime {
+    color: $lime;
+}
+
+.text-aqua {
+    color: $aquaPearl;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.border-pink {
+    -webkit-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    -moz-box-shadow:inset 0px 0px 0px 1.2px $candypop;
+    box-shadow:inset 0px 0px 0px 1.2px $candypop;
+}
+
+.border-pink-bold {
+    -webkit-box-shadow:inset 0px 0px 0px 2px $candypop;
+    -moz-box-shadow:inset 0px 0px 0px 2px $candypop;
+    box-shadow:inset 0px 0px 0px 2px $candypop;
+}
+
+.border-candy:focus {
+    -webkit-box-shadow:inset 0px 0px 0px 1.2px $rosaClarito;
+    -moz-box-shadow:inset 0px 0px 0px 1.2px $rosaClarito;
+    box-shadow:inset 0px 0px 0px 1.2px $rosaClarito;
+}
+
+.border-aqua {
+    border-color: $aquaPearl;
+}
+
+.border-lime {
+    border-color: $lime;
+}
+
+.border-sandy {
+    border-color: $sandy;
+}
+
+.border-candypop {
+    border-color: $candypop;
+}
+
+.bg-pink-pressed:focus {
+    background-color: $rosaOscuro;
+}
+
+.shadow-pink {
+    box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+.shadow-logo {
+    box-shadow: 0px 10px 250px rgba(253, 127, 142, 0.25), 0px 4px 10px rgba(253, 127, 142, 0.25);
+}
+
+.shadow-button {
+    box-shadow: 0px 3px 6px rgba(197, 197, 197, 0.4);
+}
+
+/****************** PLACEHOLDERS *********************/
+
+::-webkit-input-placeholder { /* Edge */
+    color: $textoFormulario;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $textoFormulario;
+}
+
+::placeholder {
+    color: $textoFormulario;
+}
+
+
+/********************** FUENTES **********************/
+
+@font-face {
+    font-family: 'Regular';
+    src: url('../assets/fonts/Nunito/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'SemiBold';
+    src: url('../assets/fonts/Nunito/Nunito-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('../assets/fonts/Nunito/Nunito-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'ExtraBold';
+    src: url('../assets/fonts/Nunito/Nunito-ExtraBold.ttf');
+}
+
+* {
+    font-family: 'Regular';
+}
+
+.regular {
+    font-family: 'Regular';
+}
+
+.semibold {
+    font-family: 'SemiBold';
+}
+
+.bold {
+    font-family: 'Bold';
+}
+
+.extrabold {
+    font-family: 'ExtraBold';
+}

@@ -1,0 +1,22 @@
+<ion-fab-button *ngIf="estilo !== 'multiple'; else multiple" type="button" class="create outline-none z-10 rounded-full w-16 h-16 bg-twice text-white shadow-pink abajoDerecha flex items-center justify-center">
+  <img *ngIf="type == 'save'; else default" src="../../../assets/icon/check.svg" />
+  <ng-template #default>
+    <img src="../../../assets/icon/create.svg" />
+  </ng-template>
+</ion-fab-button>
+
+<ng-template #multiple>
+  <ion-fab type="button" class="outline-none w-16 h-16 text-white abajoDerecha flex items-center justify-center">
+    <ion-fab-button type="button" class="create outline-none z-10 rounded-full w-16 h-16 bg-twice text-white shadow-pink flex items-center justify-center">
+      <img src="../../../assets/icon/create.svg" />
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button type="button" class="my-3 outline-none z-10 rounded-150 w-32 h-12 bg-twice text-white shadow-pink flex items-center justify-center">
+        <div>New folder</div>
+      </ion-fab-button>
+      <ion-fab-button type="button" class="my-3 outline-none z-10 rounded-150 w-32 h-12 bg-twice text-white shadow-pink flex items-center justify-center">
+        <div>Upload file</div>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ng-template>

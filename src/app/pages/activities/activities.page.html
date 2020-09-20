@@ -1,0 +1,47 @@
+<div class="containerNoPadding" *ngIf="loaded">
+  <div class="px-10 pt-10">
+    <arrow-back [routerLink]="['/trip/' + trip.id]" [state]="trip"></arrow-back>
+    <page-title title='Trip activities'></page-title>
+  </div>
+  <create-button></create-button>
+
+  <ion-segment scrollable class="flex items-center pl-10">
+    <div *ngFor="let day of dates, index as i">
+      <button [ngClass]="active == day ? 'activeFilter' : 'inactiveFilter'" class="outline-none rounded-lg px-3 w-24 py-2 text-lg mr-5" (click)="changeActive(i)">
+        <p class="font-semibold">Day {{ i+1 }}</p>
+        <p class="text-sm">{{ day | date:'MMM d' }}</p>
+      </button>
+    </div>
+  </ion-segment>
+
+  <div class="mt-8 px-10">
+    <div *ngFor="let activity of currentActivities, index as i, let last = last" class="text-dark w-full my-2">
+      <div class="w-full outline-none" [routerLink]="activity.id + '/activity-detail'" [state]="{'activity': activity, 'trip':trip, 'day':active}">
+        <div class="w-full flex items-center">
+          <img [src]="'../../../assets/icon/' + activity.tipo + '.svg'" class="w-8 h-8 rounded-full bg-candypop p-1 mr-3">
+          <span class="text-candypop font-semibold wider">{{ activity.hora }}</span>
+        </div>
+        <div class="flex pl-8 py-3 w-full items-center ml-4" [ngClass]="{ borderDotted : !last }" >
+          <div class="w-2/5 flex justify-center items-center">
+            <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')'}" class="w-full fotoActividad rounded-lg h-20 bg-cover z-10"></div>
+            <div [ngStyle]="{'background-image': 'url(' + activity.foto + ')',
+                              '-webkit-filter': 'blur(15px)', 
+                              '-moz-filter': 'blur(15px)',
+                              '-o-filter': 'blur(15px)',
+                              '-ms-filter': 'blur(15px)',
+                              'filter': 'blur(15px)',
+                              'opacity': '60%'
+                            }" class="w-1/6 fotoFondorounded-lg h-20 bg-cover absolute"></div>
+          </div>
+          <div class="w-3/5 ml-5">
+            <div class="font-semibold mb-2">{{ activity.titulo }}</div>
+            <div class="text-sm">
+              <span>{{ activity.ubicacion }}</span>
+              <span *ngIf="activity.precio != ''"> - {{ activity.precio }} €</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</div>

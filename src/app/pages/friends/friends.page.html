@@ -1,0 +1,32 @@
+<div class="container">
+  <arrow-back [routerLink]="['/tabs/user']"></arrow-back>
+  <page-title title="Friends"></page-title>
+  <create-button [routerLink]="['/add-friend']" [state]="[friends]"></create-button>
+
+  <div *ngIf="loaded">
+    <div *ngIf="friends.length > 0; else noFriends" class="mt-8">
+      <div *ngFor="let friend of friends; index as i" class="flex justify-between items-center">
+        <div *ngIf="friend.users[0] !== nickLogged; else other" class="flex justify-between items-center w-full">
+          <div *ngIf="friend.status != 'pending'" class="flex justify-between items-center w-full">
+            <user-row [icon]="friend.icons[0]" [nickname]="friend.users[0]"></user-row>
+            <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 0, 1, i)"></small-button>
+          </div>
+        </div>
+        <ng-template #other class="w-full flex justify-between items-center">
+          <user-row [icon]="friend.icons[1]" [nickname]="friend.users[1]"></user-row>
+          <small-button [textButton]="friend.status" (click)="toggleFollow(friend, 1, 0, i)"></small-button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+
+
+  <ng-template #noFriends>
+    <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+      Oops! It looks like you didn't add any friend yet. Try sending a request clicking the floating button!
+    </div>
+  </ng-template>
+
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <arrow-back [routerLink]="['/tabs/trips']"></arrow-back>
+  <page-title title="Notifications"></page-title>
+
+
+  <div *ngIf="loaded" class="text-dark -mt-6">
+    <div *ngIf="requests.length > 0; else noNotif" class="mt-8">
+      <div *ngFor="let request of requests; index as i" class="flex justify-between items-center">
+        <div *ngIf="request.users[1] == nickLogged" class="w-full">
+          <hr class="my-6"/>
+          <div class="flex justify-between items-center mb-3">
+            <img [src]="request.icons[0]" class="w-10 h-10"/>
+            <span>
+              <button class="mr-4 border-pink-bold p-2 rounded-full" (click)="handleRequest(request, true)"><img src="../../../assets/icon/check-pink.svg"/></button>
+              <button class="border-pink-bold p-2 rounded-full" (click)="handleRequest(request, false)"><img src="../../../assets/icon/x-pink.svg"/></button>
+            </span>
+          </div>
+          <div><strong>{{ request.users[0] }}</strong> has sent you a friend request.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #noNotif>
+    <div class="w-full flex items-center justify-center text-center text-form semibold text-xl" style="height: 50vh;">
+      Nothing new to see!
+    </div>
+  </ng-template>
+
+</div>

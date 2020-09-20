@@ -1,0 +1,147 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "./theme/colors.scss";
+
+
+.sombra-blur {
+    -webkit-filter: blur(18px);
+    -moz-filter: blur(18px);
+    -o-filter: blur(18px);
+    -ms-filter: blur(18px);
+    filter: blur(18px);
+    opacity: 55%;
+}
+
+.swiper-pagination {
+    position: fixed !important;
+}
+
+.swiper-pagination-bullets {
+    bottom: 10px !important;
+}
+
+.swiper-pagination-bullet {
+    background: $rosaClarito;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background: $candypop;
+    width: 20px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+ion-toast.toast-warning {
+    color: white;
+    font-size: 16px;
+    --background: rgba(172, 172, 172, 1);
+    --border-radius: 15px;
+    --box-shadow: none;
+    --height: 4rem;
+    bottom: 50px;
+    position: fixed;
+}
+
+.alert-confirm .alert-wrapper {
+    --box-shadow: none;
+    box-shadow: none;
+}
+
+.alert-confirm .secondary {
+    margin-right: 2rem;
+}
+
+.custom-popover .popover-content {
+    width: 150px !important;
+    top: 45px !important;
+    right: 45px !important;
+    left: auto !important;
+    transform-origin: right top !important;
+}
+
+.custom-popover .list-md {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+ion-fab-button.create {
+    --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+ion-fab-button.travelers {
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+ion-fab.create {
+    --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+}
+
+ion-fab-button.main {
+    --background: linear-gradient(99.67deg, $sandy -22.98%, $candypop 127.79%);
+    --box-shadow: 0px 4px 10px rgba(253, 127, 142, 0.4);
+    --border-radius: 45px;
+    --height: 55px;
+}
+
+ion-fab-button.fab-button-close-active {
+    --background: #ACACAC !important;
+    --box-shadow: 0px 4px 10px rgba(172, 172, 172, 0.7) !important;
+}
+
+ion-fab-button.fab-button-in-list {
+    --background: none !important;
+    --box-shadow: none !important;
+    --color: white !important;
+    font-size: 16px !important;
+}
+
+
+ion-fab-list.fab-list-active {
+    margin-bottom: 80px !important;
+    width: 20em !important;
+}
+
+.arrowBack:focus {
+    background-color: $grisFormulario;
+    border-radius: 9999px;
+}
+
+.ion-activated {
+    background-color: $grisClarito !important;
+}
+
+.ripple-parent {
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}

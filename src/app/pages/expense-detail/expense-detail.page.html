@@ -1,0 +1,28 @@
+<div class="container overflow-y-auto" *ngIf="loaded">
+  <div class="flex items-center justify-between">
+    <arrow-back [routerLink]="['/trip/' + trip.id + '/expenses']" [state]="trip"></arrow-back>
+    <buttons-more type="white" [sectionName]="'expense'" [data]="expense"></buttons-more>
+  </div>
+  <page-title title="Expense detail"></page-title>
+
+  <div class="mt-10 text-dark">
+    <div class="flex items-center justify-between">
+      <span class="w-3/4">{{ expense.texto }}</span>
+      <span class="w-1/4 text-right semibold text-xl">{{ expense.precio }} €</span>
+    </div>
+
+    <hr class="my-6">
+
+    <div class="flex items-center justify-between">
+      <span class="italic">You joined this expense</span>
+      <small-button [textButton]="'exit'"></small-button>
+    </div>
+
+    <hr class="my-6">
+
+    <label label='Paid by:'></label>
+    <div *ngFor="let participante of participantes" class="flex items-center justify-between">
+      <user-row [icon]="participante.icono" [nickname]="participante.nick"></user-row>
+      <radio-button class="flex items-center" [checked]="false"></radio-button>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div *ngIf="loaded" class="relative">
+  <div class="header flex flex-col p-8 pb-16 w-full">
+    <arrow-back type="white" [routerLink]="['/tabs/trips']"></arrow-back>
+    <page-title type="white" title='Your profile'></page-title>
+  </div>
+
+  <div class="contenedor container -mt-10 z-10 flex flex-col">
+    <div class="w-full flex justify-center">
+      <div [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"
+          class="fotoPerfil rounded-full w-32 h-32 bg-cover z-10"></div>
+      <div [ngStyle]="{'background-image': 'url(' + profilePic + ')',
+                        '-webkit-filter': 'blur(20px)', 
+                        '-moz-filter': 'blur(20px)',
+                        '-o-filter': 'blur(20px)',
+                        '-ms-filter': 'blur(20px)',
+                        'filter': 'blur(20px)',
+                        'opacity': '65%'}"
+          class="fotoFondo rounded-full w-24 h-32 bg-cover absolute"></div>
+    </div>
+    <div class="w-full flex justify-center bold text-dark mt-5">@{{ nickname }}</div>
+
+    <div class="mt-10">
+      <hr />
+      <div class="ion-activatable ripple-parent flex items-center py-3" routerLink="/edit-profile">
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="flex items-center justify-center bg-candypop p-2 rounded-lg">
+          <img src="../../../assets/icon/edit-white.svg" />
+        </div>
+        <div class="text-dark ml-4">Edit profile</div>
+      </div>
+      <hr />
+      <div class="ion-activatable ripple-parent flex items-center py-3" routerLink="/settings">
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="flex items-center justify-center bg-sandy p-2 rounded-lg">
+          <img src="../../../assets/icon/settings-white.svg" />
+        </div>
+        <div class="text-dark ml-4">Settings</div>
+      </div>
+      <hr />
+      <div class="ion-activatable ripple-parent flex items-center py-3" routerLink="/friends">
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="flex items-center justify-center bg-lime p-2 rounded-lg">
+          <img src="../../../assets/icon/users-white.svg" />
+        </div>
+        <div class="text-dark ml-4">Friends</div>
+      </div>
+      <hr />
+      <div class="ion-activatable ripple-parent flex items-center py-3" routerLink="/blocked">
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="flex items-center justify-center bg-aqua p-2 rounded-lg">
+          <img src="../../../assets/icon/user-x-white.svg" />
+        </div>
+        <div class="text-dark ml-4">Blocked list</div>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>

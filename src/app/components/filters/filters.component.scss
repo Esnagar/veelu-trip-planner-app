@@ -1,0 +1,19 @@
+@import "../../../theme/colors.scss";
+
+.activeFilter {
+    background-color: $candypop;
+    padding: 0.3em 1.1em 0.3em 1.1em;
+    border-radius: 150px;
+    margin-right: 0.75em;
+    color: white;
+    outline: none !important;
+}
+
+.inactiveFilter {
+    background-color: $grisFormulario;
+    padding: 0.3em 1.1em 0.3em 1.1em;
+    border-radius: 150px;
+    margin-right: 0.75em;
+    color: $textoFormulario;
+    outline: none !important;
+}
